@@ -1,0 +1,127 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Symbols Nerd Font Mono", "JetBrainsMono Nerd Font", "azuki_font";
+    font-size: 11px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: white;
+}
+
+tooltip {
+	background: #0f0f0f;
+	border-radius: 15px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #262626;
+}
+
+#workspaces button {
+    padding: 5px 10px;
+    color: #61AFEF;
+}
+
+#workspaces button.active {
+    color: #0f0f0f;
+    background-color: #A92A4F;
+    border-radius: 15px;
+}
+
+#workspaces button.urgent {
+    color: #0f0f0f;
+    background-color: #9ec3c4;
+    border-radius: 15px;
+}
+
+#workspaces button:hover {
+	background-color: #E06C75;
+	color: #0f0f0f;
+	border-radius: 15px;
+}
+
+#custom-date, #custom-notification, #custom-media, #custom-updates, #custom-downloads, #window, #clock, #cpu, #memory, #battery, #pulseaudio, #network, #workspaces, #tray, #custom-recording {
+	background-color: #181825;
+	padding: 5px 10px;
+	margin: 5px 0px 0px 0px;
+}
+
+#custom-recording {
+  color: #d20f30;
+}
+
+#window {
+  color: #cdd6f4;
+  border-radius: 15px;
+}
+
+#custom-media {
+	color: #f9e2af;
+}
+
+#custom-notification {
+  color: #eb6f92;
+}
+
+#tray {
+  padding-left: 15px;
+}
+
+#workspaces {
+	background-color: #1e1e2e;
+	border-radius: 15px 0px 0px 15px;
+}
+
+#custom-date {
+  color: #31748f;
+}
+
+#custom-updates {
+   color: #9ccfd8;
+}
+
+#custom-downloads {
+   color: #f6c177;
+}
+
+#clock {
+  color: #c4a7e7;
+  border-radius: 0px 15px 15px 0px;
+  margin-right: 10px;
+}
+
+#network {
+	color: #9ccfd8;
+	border-radius: 0px 0px 0px 0px;
+}
+
+#battery {
+	color: #c4a7e7;
+	border-radius: 0px 0px 0px 0px;
+}
+
+#battery.charging {
+	color: #E98CA4;
+	border-radius: 0px 0px 0px 0px;
+}
+
+#battery.plugged {
+	color: #C678DD;
+	border-radius: 0px 0px 0px 0px;
+}
+
+#cpu {
+	color: #ebbcba;
+	border-radius: 0px 0px 0px 0px;
+}
+
+#memory {
+	color: #7EC7A2;
+	border-radius: 0px 0px 0px 0px;
+}
+
+#pulseaudio {
+	color: #9ccfd8;
+}
