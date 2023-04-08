@@ -3,9 +3,12 @@ alias n='lvim'
 alias t='tmux'
 alias sk='sk --layout=reverse'
 alias ver='wezterm imgcat'
+alias sudo='doas'
+alias webcamm='mplayer tv:// -tv driver=v4l2:width=640:height=360:device=/dev/video0:fps=60:outfmt=yuy2'
+alias cmx='chmod +x'
 
-alias cat='bat --paging=never'
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq);yay -c' #Cleanup orphaned packages
+# alias bat='bat --paging=never'
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' #Cleanup orphaned packages
 alias clock='tty-clock -sct -C 4'
 alias cpu="ps axch -o cmd:15,%cpu --sort=-%cpu | head"
 alias df='df -h'
@@ -16,8 +19,6 @@ alias gpgimportkey="gpg --import"
 alias gpglistkeys="gpg --list-keys --keyid-format LONG"
 alias grep='grep --color=auto'
 alias jctl="journalctl -p 3 -xb" #get the error messages from journalctl
-alias killp='killprocess'
-alias kp='killprocess'
 # alias l='exa -lahF --color=always --icons --sort=size --group-directories-first'
 # alias ls='exa -lhF --color=always --icons --sort=created -r --group-directories-first'
 # alias lst='exa -lahFT --color=always --icons --sort=size --group-directories-first'
@@ -28,7 +29,7 @@ alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pac
 alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
 alias mv='mv -i'
-alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
+# alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl" #Recent Installed Packages
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
 alias rm='rm -i'

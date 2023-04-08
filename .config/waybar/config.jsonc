@@ -2,17 +2,25 @@
   "layer": "top",
   "position": "top",
   "space": 0,
+  "gtk-layer-shell": true,
+  "modules-left":[
+    "hyprland/window"
+  ],
+  "modules-right":[
+    "clock",
+    "custom/date"
+  ],
   "modules-center": [
     "wlr/workspaces",
     "tray",
     "custom/recording",
+    "hyprland/submap",
     "network",
     "battery",
+    "disk",
     "cpu",
     "memory",
-    "pulseaudio",
-    "custom/date",
-    "clock"
+    "pulseaudio"
   ],
   "battery": {
     "states": {
@@ -20,7 +28,7 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{capacity}% {icon}",
+    "format": "{icon} {capacity}%",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
@@ -35,8 +43,13 @@
     ]
   },
   "hyprland/window": {
-    "format": "{}",
-    "max-length": 30
+    "format": "💻 {}",
+    "max-length": 40
+  },
+  "hyprland/submap": {
+    "format": "🚧 {}",
+    "max-length": 30,
+    "tooltip": false
   },
   "cpu": {
     "format": " {usage}%",
@@ -74,62 +87,21 @@
     "icon-size": 13,
     "spacing": 10
   },
-  "custom/media": {
-    "format": "{icon} {}",
-    "max-length": 40,
-    "format-icons": {
-      "spotify": " ",
-      "default": " "
-    },
-    "escape": true,
-    "exec": "$HOME/.config/waybar/scroll_spotify_status.sh"
-  },
   "custom/date": {
-    "format": "  {}",
+    "format": "{} ",
     "interval": 3600,
     "exec": "$HOME/.config/waybar/waybar-date.sh"
   },
-  "custom/notification": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": " <span foreground='red'><sup></sup></span>",
-      "none": " ",
-      "dnd-notification": " <span foreground='red'><sup></sup></span>",
-      "dnd-none": " "
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  },
   "clock": {
-    "format": "  {:%H:%M} ",
+    "format": "  {:%H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "network": {
-    "format-wifi": "  {essid}",
+    "format-wifi": "  {signalStrength}%",
     "format-ethernet": " NoOneDetected",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "󰤮 Disconnected",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}"
-  },
-  "custom/updates": {
-    "interval": 120,
-    "return-type": "string",
-    "exec": "~/.config/waybar/modules/updates.sh",
-    "tooltip": false,
-    "on-click": "setsid -f wezterm start paru -Syyu"
-    //"on-click":"setsid -f foot -e paru -Syyu"
-  },
-  "custom/downloads": {
-    "interval": 600,
-    "return-type": "string",
-    "exec": "~/.config/waybar/modules/downloads.py",
-    "tooltip": false,
-    "on-click": "xdg-open https://github.com/xelphlinux/xelph-iso"
+    "tooltip-format-wifi": "Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}"
   },
   "pulseaudio": {
     "format": "{icon}  {volume}%",
