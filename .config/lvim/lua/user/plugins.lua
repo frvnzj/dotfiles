@@ -18,7 +18,7 @@ lvim.plugins = {
       })
     end,
   },
-  { "catppuccin/nvim", as = "catppuccin" },
+  { "catppuccin/nvim", name = "catppuccin" },
   -- {'nvim-orgmode/orgmode', config = function()
   --   require('orgmode').setup({
   --     org_agenda_files = '~/orgmode/*',
@@ -67,7 +67,7 @@ lvim.plugins = {
   -- },
   {
   "iamcco/markdown-preview.nvim",
-  run = "cd app && npm install",
+  build = "cd app && npm install",
   ft = "markdown",
   config = function()
     vim.g.mkdp_auto_start = 1

@@ -16,6 +16,3 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
-
-local opts = {}
-require("lvim.lsp.manager").setup("denols", opts)
