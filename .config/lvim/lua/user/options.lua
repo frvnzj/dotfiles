@@ -1,8 +1,9 @@
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
 lvim.transparent_window = true
--- lvim.colorscheme = "catppuccin"
-lvim.colorscheme = "lunar"
+lvim.colorscheme = "catppuccin"
+-- lvim.colorscheme = "lunar"
+-- lvim.colorscheme = "tokyonight-night"
 lvim.reload_config_on_save = false
 
 vim.opt.wrap = true
@@ -16,7 +17,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
-lvim.builtin.breadcrumbs.active = false
+lvim.builtin.breadcrumbs.active = true
 lvim.builtin.bufferline.active = false
 
 lvim.lsp.diagnostics.float.focusable = true
