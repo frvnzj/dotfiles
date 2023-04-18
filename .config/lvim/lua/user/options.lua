@@ -12,8 +12,8 @@ vim.opt.relativenumber = true
 vim.opt.showtabline = 0
 vim.opt.cmdheight = 0
 
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
+-- lvim.builtin.alpha.active = true
+-- lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
