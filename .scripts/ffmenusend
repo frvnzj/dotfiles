@@ -26,7 +26,7 @@ ls() {
 		                target="$newt"
 		                if [ ! -d "$target" ]; then
 		                        echo "Location: $target"
-								command="ffsend u -I -q --password="secret" --downloads 1 $target"
+								command="ffsend u -I -q --downloads 1 $target"
                					echo "Executing: $command"
 
                					url=$(eval $command)

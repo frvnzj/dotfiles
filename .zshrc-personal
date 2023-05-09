@@ -4,8 +4,11 @@ alias t='tmux'
 alias sk='sk --layout=reverse'
 alias ver='wezterm imgcat'
 alias sudo='doas'
-alias webcamm='mplayer tv:// -tv driver=v4l2:width=640:height=360:device=/dev/video0:fps=60:outfmt=yuy2'
 alias cmx='chmod +x'
+alias nvim-chad="NVIM_APPNAME=nvchad nvim"
+alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+
+alias nnn='nnn -e'
 
 # alias bat='bat --paging=never'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' #Cleanup orphaned packages
@@ -33,7 +36,8 @@ alias mv='mv -i'
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl" #Recent Installed Packages
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
 alias rm='rm -i'
-alias sxiv='nsxiv'
+alias sxiv='nsxiv -b'
+alias nsxiv='nsxiv -b'
 alias update='sudo pacman -Syyu'
 alias updatefonts='sudo fc-cache -fv'
 alias wget="wget -c" # continue the download

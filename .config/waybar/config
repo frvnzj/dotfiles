@@ -1,0 +1,106 @@
+{
+  "layer": "top",
+  "heigh": 30,
+  "spacing": 4,
+  "modules-left": ["custom/launcher", "wlr/workspaces", "hyprland/window"],
+  "modules-right": ["tray", "custom/recording", "custom/notification", "network", "cpu", "memory", "pulseaudio", "battery", "custom/date", "clock"],
+  "custom/launcher": {
+    "format": "",
+    "on-click": "wofi --show drun -I -m -i",
+  },
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "all-outputs": true,
+    "on-click": "activate",
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 80,
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "custom/recording": {
+    "exec": "exec ~/.local/bin/record-screend",
+    "exec-on-event": false,
+    "on-click": "pkill -INT -P \"$(pgrep -xo record-screen)\" wf-recorder"
+  },
+  "network": {
+    "format-wifi": "<span color='#7287fd'> </span> {signalStrength}%",
+    "format-ethernet": " NoOneDetected",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "󰤮 Disconnected",
+    "tooltip-format-wifi": "Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}"
+  },
+  "cpu": {
+    "format": "<span color='#fab387'> </span>{usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "<span color='#cba6f7'> </span>{}%",
+    "tooltip-format": "{used:0.1f}G / {total:0.1f}G used"
+  },
+  "pulseaudio": {
+    "format": "<span color='#99d1db'>{icon}</span> {volume}%",
+    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": "婢",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "battery": {
+    "states": {
+      "full": 99,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span color='#a6e3a1'>{icon}</span> {capacity}%",
+    "format-charging": "<span color='#a6e3a1'></span> {capacity}%",
+    "format-plugged": "<span color='#a6e3a1'></span> {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "custom/date": {
+    "format": "{}",
+    "interval": 3600,
+    "exec": "$HOME/.config/waybar/waybar-date.sh"
+  },
+  "clock": {
+    "format": "<span color='#89dceb'> </span> {:%H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "<span foreground='red'><sup></sup></span>",
+        "none": "",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-none": "",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": ""
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+}

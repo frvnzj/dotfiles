@@ -14,7 +14,7 @@ spell_failed(){
 
 choice=$(menu | bemenu -p "Imagen Spells 🧙🏽" | cut -d. -f1)
 img=$(fd . '/home/frvnzj/' -e png -e jpg | sort -u | bat)
-preview=$(nsxiv -top $img)
+preview=$(nsxiv -to $img)
 
 case $choice in
   1)

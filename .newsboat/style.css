@@ -1,0 +1,17 @@
+body {
+  font-size: 14pt;
+  max-width: 900px;
+  margin: auto;
+  padding: 2%;
+  background-color: #11111b;
+  color: #cdd6f4;
+}
+
+a {
+  color: #cdd6f4;
+}
+
+img {
+  max-width: 600px;
+  max-height: 100%;
+}

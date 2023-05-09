@@ -1,9 +1,5 @@
 lvim.plugins = {
   {'psliwka/vim-smoothie'},
-  -- {
-  --   "folke/trouble.nvim",
-  --   cmd = "TroubleToggle",
-  -- },
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
@@ -19,52 +15,6 @@ lvim.plugins = {
     end,
   },
   { "catppuccin/nvim", name = "catppuccin" },
-  -- {'nvim-orgmode/orgmode', config = function()
-  --   require('orgmode').setup({
-  --     org_agenda_files = '~/orgmode/*',
-  --     org_capture_templates = {
-  --       t = 'Agenda',
-  --       td = {
-  --         description = 'Hoy',
-  --         template= '\n** TODO %?\n %t',
-  --         target = '~/orgmode/agenda.org',
-  --         headline = 'En el transcurso del día'
-  --       },
-  --       th = {
-  --         description = 'Hora',
-  --         template= '\n** TODO %?\n %T',
-  --         target = '~/orgmode/agenda.org',
-  --         headline = 'Hora agendada'
-  --       },
-  --       j = {
-  --         description = 'Diario',
-  --         template = '\n** %<%Y-%m-%d> %<%A>\n*** %U\n\n%?',
-  --         target = '~/orgmode/diario.org'
-  --       },
-  --       n = 'notas',
-  --       nt = {
-  --         description = 'Tesis',
-  --         template = '\n** %?\n %U\n\n%?',
-  --         target = '~/orgmode/notas.org',
-  --         headline = 'Para Tesis'
-  --       },
-  --       ne = {
-  --         description = 'Ensayo',
-  --         template = '\n** %?\n %U\n\n%?',
-  --         target = '~/orgmode/notas.org',
-  --         headline = 'Para ensayos'
-  --       },
-  --       na = {
-  --         description = 'Aforismos',
-  --         template = '\n** %?\n %U\n\n%?',
-  --         target = '~/orgmode/notas.org',
-  --         headline = 'Para aforismos'
-  --       },
-  --     },
-  --   })
-  --   require('orgmode').setup_ts_grammar()
-  -- end
-  -- },
   {
   "iamcco/markdown-preview.nvim",
   build = "cd app && npm install",
@@ -86,16 +36,4 @@ lvim.plugins = {
     }
   end
   },
-  -- {'MunifTanjim/nui.nvim'},
-  -- {
-  -- "folke/noice.nvim",
-  -- config = function()
-  --   require("noice").setup({
-  --       -- add any options here
-  --   })
-  -- end,
-  -- requires = {
-  --   "MunifTanjim/nui.nvim",
-  --   }
-  -- },
 }

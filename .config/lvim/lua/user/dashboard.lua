@@ -20,7 +20,7 @@ if vim.fn.has "linux" == 1 or vim.fn.has "mac" == 1 then
   -- plugins = handle:read "*a"
   -- handle:close()
 
-  local thingy = io.popen 'echo "$(date +%a) $(date +%d) $(date +%b)" | tr -d "\n"'
+  local thingy = io.popen 'echo "$(date +%A) $(date +%d) de $(date +%B) de $(date +%Y)" | tr -d "\n"'
   date = thingy:read "*a"
   thingy:close()
   plugins = plugins:gsub("^%s*(.-)%s*$", "%1")
@@ -40,7 +40,7 @@ local plugin_count = {
 
 local heading = {
   type = "text",
-  val = "┌─ " .. kind.icons.calendar .. " Today is " .. date .. " ─┐",
+  val = "┌─ " .. kind.icons.calendar .. " " .. date .. " ─┐",
   opts = {
     position = "center",
     hl = "String",
@@ -90,16 +90,12 @@ end
 local buttons = {
   type = "group",
   val = {
-    button("f", " " .. kind.cmp_kind.Folder .. " Explore", ":Telescope find_files<CR>"),
-    button("e", " " .. kind.cmp_kind.File .. " New file", ":ene <BAR> startinsert <CR>"),
-    button(
-      "g",
-      " " .. kind.icons.git .. " Git Status",
-      ":lua require('lvim.core.terminal')._exec_toggle({cmd = 'lazygit', count = 1, direction = 'float'})<CR>"
-    ),
-    button("r", " " .. kind.icons.clock .. " Recents", ":Telescope oldfiles<CR>"),
-    button("c", " " .. kind.icons.settings .. " Config", ":e ~/.config/lvim/config.lua<CR>"),
-    button("q", " " .. kind.icons.exit .. " Quit", ":q<CR>"),
+    button("f", " " .. kind.cmp_kind.Folder .. " Explorar", "<CMD>Telescope find_files<CR>"),
+    button("n", " " .. kind.cmp_kind.File .. " Nuevo Doc", "<CMD>ene!<CR>"),
+    button("g", " " .. kind.icons.git .. "  Git Status", "<CMD>lua require('lvim.core.terminal')._exec_toggle({cmd = 'lazygit', count = 1, direction = 'float'})<CR>"),
+    button("r", " " .. kind.icons.clock .. " Recientes", "<CMD>Telescope oldfiles<CR>"),
+    button("c", " " .. kind.icons.settings .. " Configurar", "<CMD>edit ~/.config/lvim/config.lua<CR>"),
+    button("q", " " .. kind.icons.exit .. " Salir", "<CMD>q<CR>"),
   },
   opts = {
     spacing = 1,

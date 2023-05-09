@@ -20,5 +20,4 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.breadcrumbs.active = true
 lvim.builtin.bufferline.active = false
 
-lvim.lsp.diagnostics.float.focusable = true
 lvim.builtin.illuminate.active = false

@@ -1,7 +1,5 @@
 #!/bin/env bash
 
-lvim=~/.local/bin/lvim
-
 declare -A options=(
 ["🖥️ Hyprland"]="$HOME/.config/hypr/hyprland.conf"
 ["📜 EditScript"]="$HOME/.local/bin/wayeditfile"
@@ -16,7 +14,7 @@ choice=$(printf '%s\n' "${!options[@]}" | sort -u | bemenu -i -l 15 -H 20 --fb "
 
 if [ "$choice" ]; then
 
-  wezterm -e $lvim "${options[$choice]}"
+  kitty lvim "${options[$choice]}"
 
 else
   exit 1
