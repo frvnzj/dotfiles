@@ -1,7 +1,10 @@
 local wezterm = require 'wezterm'
 
+local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+custom.background = "#11111b"
+
 local function font_with_fallback(name, params)
-  local names = { name, 'Noto Color Emoji', 'azuki_font' }
+  local names = { name, 'Symbols Nerd Font Mono' }
   return wezterm.font_with_fallback(names, params)
 end
 
@@ -16,7 +19,10 @@ return {
   front_end = 'OpenGL',
 
   -- Colors: Catppuccin Mocha, Poimandres, tokyonight_night, Dracula, nightfox, Sequoia Monochrome, Sequoia Moonlight, rose-pine, Rosé Pine (base16), Rouge 2)
-  color_scheme = 'Rouge 2',
+  color_schemes = {
+    ["OLEDppuccin"] = custom,
+  },
+  color_scheme = 'OLEDppuccin',
   colors = colors,
   window_frame = window_frame, -- needed only if using fancy tab bar
 
@@ -38,7 +44,7 @@ return {
   },
 
   warn_about_missing_glyphs = false,
-  font_size = 11,
+  font_size = 11.5,
   line_height = 1.0,
   dpi = 96.0,
 
@@ -266,14 +272,14 @@ return {
   bold_brightens_ansi_colors = true,
   -- Padding
   window_padding = {
-    left = 10,
-    right = 10,
-    top = 10,
-    bottom = 10,
+    left = 30,
+    right = 30,
+    top = 25,
+    bottom = 20,
   },
 
-  initial_cols = 110,
-  initial_rows = 28,
+  initial_cols = 100,
+  initial_rows = 26,
 
   -- Tab Bar
   enable_tab_bar = true,

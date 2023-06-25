@@ -1,107 +1,123 @@
 * {
     border: none;
-    font-family: "Symbols Nerd Font Mono", "Cascadia Code", "azuki_font";
+    border-radius: 0;
+    font-family: "Symbols Nerd Font Mono", "Cascadia Code";
+    font-weight: bold;
     font-size: 11px;
-    padding: 0;
-    margin: 0;
+    min-height: 0;
 }
 
 window#waybar {
-  background-color: #181825;
-  color: #cdd6f4;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+    background: #181825;
+    color: #cdd6f4;
 }
 
-window#waybar.hidden {
-  opacity: 0.2;
+tooltip {
+    background: #1e1e2e;
+    opacity: 0.8;
+    border-radius: 6px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #11111b;
 }
 
-#workspaces {
-  border-radius: 0px;
+tooltip label{
+    color: #cdd6f4;
 }
 
 #workspaces button {
-  padding: 0 5px;
-  background-color: transparent;
-  color: #a6adc8;
-  box-shadow: inset 0 -3px transparent;
-  border: none;
-  border-radius: 0;
-}
-
-#workspaces button:hover {
-  border-radius: 0px;
-  background: #11111b;
-  color: #cdd6f4;
-}
-
-#workspaces button.focused {
-  color: #cdd6f4;
-  background-color: #1e1e2e;
+    padding: 0px;
+    color: #8aadf4;
+    margin-right: 5px;
 }
 
 #workspaces button.active {
-  color: #cdd6f4;
+    color: #a6e3a1;
+}
+
+#workspaces button.focused {
+    color: #ed8796;
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+    color: #11111b;
+    background: #a6e3a1;
+    border-radius: 10px;
 }
 
-#window {
-  color: #64727d;
+#workspaces button:hover {
+    background: #11111b;
+    color: #cdd6f4;
+    border-radius: 10px;
 }
 
+#custom-launch_wofi,
+#custom-notification
+#window,
+#cpu,
+#disk,
+#tray,
+#memory,
 #clock,
 #battery,
+#pulseaudio,
+#pulseaudio.microphone,
+#workspaces,
+#backlight {
+    padding: 0px 6px;
+}
+
 #cpu,
 #memory,
 #disk,
-#custom-recording,
 #backlight,
-#network,
 #pulseaudio,
-#custom-date,
-#custom-notification
-#tray,
-#custom-updates,
-#idle_inhibitor,
-#mpd {
-  padding: 0 6px;
+#pulseaudio.microphone {
+    background: #313244;
+    margin: 3px 0px 3px 0px;
 }
 
-#window,
+#backlight,
+#cpu {
+    border-radius: 4px 0px 0px 4px;
+}
+
+#pulseaudio.microphone,
+#disk {
+    border-radius: 0px 4px 4px 0px;
+}
+
 #workspaces {
-  margin: 0 4px;
+    padding-right: 0px;
+    padding-left: 5px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
+#window {
+    color: #DCE0E8;
 }
 
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
+#custom-launch_wofi {
+    color: #89b4fa;
+    margin-left: 4px;
 }
 
-#clock {
-  color: #eff1f5;
+#custom-notification {
+  color: #f9e2af;
+  margin-left: 6px;
+  margin-right: 6px;
 }
 
-#clock:hover {
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: None;
+#custom-recording {
+  color: #d20f30;
 }
 
-#battery {
-	color: #eff1f5;
+#custom-pacman {
+  color: #babbf1;
+  margin-left: 4px;
 }
-
-#battery.charging,
-#battery.plugged {
-	color: #cdd6f4;
+#custom-pacman.pending-updates {
+  color: #94E2D5;
+  margin-left: 4px;
 }
 
 @keyframes blink {
@@ -119,72 +135,4 @@ window#waybar.hidden {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-}
-
-label:focus {
-  background-color: #000000;
-}
-
-#cpu {
-	color: #eff1f5;
-}
-
-#memory {
-	color: #eff1f5;
-}
-
-#network {
-  /* padding: 2.5px; */
-	color: #eff1f5;
-}
-
-#network:hover {
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: None;
-}
-
-#custom-launcher {
-  color: #74c7ec;
-  padding: 0 8px;
-}
-
-#custom-recording {
-  color: #d20f30;
-}
-
-#custom-updates {
-  color: #eff1f5;
-}
-
-#custom-notification {
-  color: #eff1f5;
-}
-
-#network.disconnected {
-  background-color: #f53c3c;
-}
-
-#pulseaudio {
-	color: #eff1f5;
-}
-
-#pulseaudio:hover {
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: None;
-}
-
-#pulseaudio.muted {
-  color: #f53c3c;
-}
-
-#custom-date {
-  color: #81c8be;
-}
-
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
 }

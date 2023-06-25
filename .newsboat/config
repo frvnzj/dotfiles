@@ -1,5 +1,0 @@
-auto-reload yes
-
-include ~/.newsboat/dracula
-
-browser linkhandler

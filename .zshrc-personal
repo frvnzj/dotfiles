@@ -1,13 +1,18 @@
-#aliases
-alias n='lvim'
-alias t='tmux'
+# aliases
+alias vim='nvim'
 alias sk='sk --layout=reverse'
 alias ver='wezterm imgcat'
 alias sudo='doas'
 alias cmx='chmod +x'
-alias nvim-chad="NVIM_APPNAME=nvchad nvim"
-alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
 
+# alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+
+alias cp="cp -iv"
+alias	mv="mv -iv"
+alias	rm="rm -vI"
+alias mkdir="mkdir -pv"
+
+alias gitui='gitui -t mocha.ron'
 alias nnn='nnn -e'
 
 # alias bat='bat --paging=never'
@@ -31,11 +36,9 @@ alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacma
 alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
-alias mv='mv -i'
 # alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl" #Recent Installed Packages
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
-alias rm='rm -i'
 alias sxiv='nsxiv -b'
 alias nsxiv='nsxiv -b'
 alias update='sudo pacman -Syyu'

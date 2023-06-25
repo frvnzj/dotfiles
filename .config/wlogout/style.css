@@ -1,5 +1,5 @@
 window {
-    font-family: monospace;
+    font-family: "SF Pro";
     font-size: 14pt;
     color: #cdd6f4; /* text */
     background-color: rgba(30, 30, 46, 0.5);
@@ -20,8 +20,8 @@ button:hover {
 }
 
 button:focus {
-    background-color: #cba6f7;
-    color: #1e1e2e;
+    background-color: #89b4fa;
+    color: #11111b;
 }
 
 #lock {

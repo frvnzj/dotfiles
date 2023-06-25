@@ -1,8 +1,10 @@
 #!/bin/dash
 
-cd "$HOME"/Documentos/Refs-PDF/ || exit
+export BEMENU_OPTS='-i -l 10 -H 24 --fb "#1e1e2e" --ff "#94e2d5" --nb "#1e1e2e" --nf "#f5e0dc" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#cba6f7" --hf "#89b4fa" --nf "#f5e0dc" --af "#f5e0dc" --ab "#1e1e2e" --fn "SF Pro 10"'
 
-pdf=$(fd | bat | bemenu -i -l 10 -H 20 --fb "#1e1e2e" --ff "#94e2d5" --nb "#1e1e2e" --nf "#f5e0dc" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#cba6f7" --hf "#89b4fa" --nf "#f5e0dc" --af "#f5e0dc" --ab "#1e1e2e" -p ' Leer 📚:')
+cd "$HOME"/Documentos/Refs-PDF/
+
+pdf=$(fd | bat | bemenu -p ' Leer 📚:')
 
 if [ "$pdf" ]; then
 
