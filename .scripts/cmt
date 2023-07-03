@@ -1,13 +1,20 @@
 #!/bin/sh
+
+#    _______ __  ______                          _ __ 
+#   / ____(_) /_/ ____/___  ____ ___  ____ ___  (_) /_
+#  / / __/ / __/ /   / __ \/ __ `__ \/ __ `__ \/ / __/
+# / /_/ / / /_/ /___/ /_/ / / / / / / / / / / / / /_  
+# \____/_/\__/\____/\____/_/ /_/ /_/_/ /_/ /_/_/\__/  
+
+# Script para los commits de git.
+# Dependencias: git y gum.
+
 TYPE=$(gum choose "fix" "feat" "docs" "style" "refactor" "test" "chore" "revert")
 SCOPE=$(gum input --placeholder "scope")
 
-# Since the scope is optional, wrap it in parentheses if it has a value.
 test -n "$SCOPE" && SCOPE="($SCOPE)"
 
-# Pre-populate the input with the type(scope): so that the user may change it
-SUMMARY=$(gum input --value "$TYPE$SCOPE: " --placeholder "Summary of this change")
-DESCRIPTION=$(gum write --placeholder "Details of this change (CTRL+D to finish)")
+SUMMARY=$(gum input --value "$TYPE$SCOPE: " --placeholder "Sumario del cambio")
+DESCRIPTION=$(gum write --placeholder "Detalles de los cambios. (CTRL+D para finalizar)")
 
-# Commit these changes
-gum confirm "Commit changes?" && git commit -m "$SUMMARY" -m "$DESCRIPTION"
+gum confirm "¿Commit cambios?" && git commit -m "$SUMMARY" -m "$DESCRIPTION"
