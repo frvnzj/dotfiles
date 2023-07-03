@@ -1,0 +1,10 @@
+#!/bin/sh
+
+bookmark="$(wl-paste)"
+file="$HOME/.scripts/bookms/bookmarks.txt"
+
+if rg -q "^$bookmark$" "$file"; then
+  notify-send "⛔ $bookmark" "Link ya registrado!"
+else
+  echo "$bookmark" >> "$file" && notify-send "🌐 URL: $bookmark" "🔗 Link añadido a MyBookmars" -i "$HOME/.scripts/bookms/bookm.png"
+fi
