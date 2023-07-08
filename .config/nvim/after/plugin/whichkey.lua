@@ -19,6 +19,7 @@ wk.register({
                 vim.lsp.buf.format()
             end,
                 "Formatear" },
+            m = { "<cmd>Mason<cr>", "Mason" },
         },
 
         n = { "<cmd>enew<cr>", "Nuevo archivo" },
@@ -26,6 +27,12 @@ wk.register({
         o = { "<cmd>Neorg index<cr>", "Neorg" },
 
         s = { "<cmd>setlocal spell!<cr>", "Corrector" },
+
+        u = {
+            name = "Lazy",
+            u = { "<cmd>Lazy update<cr>", "Update" },
+            s = { "<cmd>Lazy sync<cr>", "Sync" },
+        },
 
         x = {
             name = "Writer",
