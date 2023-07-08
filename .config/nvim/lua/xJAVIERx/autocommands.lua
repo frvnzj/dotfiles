@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd(
     "BufEnter",
     {
-        pattern = { "*.tex", "*.md", "*.typ", "*.txt" },
+        pattern = { "*.tex", "*.md", "*.typ" },
         command = "set textwidth=60"
     }
 )
