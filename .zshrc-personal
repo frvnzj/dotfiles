@@ -1,51 +1,32 @@
-# aliases
+#  █████╗ ██╗     ██╗ █████╗ ███████╗    ███████╗███████╗██╗  ██╗
+# ██╔══██╗██║     ██║██╔══██╗██╔════╝    ╚══███╔╝██╔════╝██║  ██║
+# ███████║██║     ██║███████║███████╗      ███╔╝ ███████╗███████║
+# ██╔══██║██║     ██║██╔══██║╚════██║     ███╔╝  ╚════██║██╔══██║
+# ██║  ██║███████╗██║██║  ██║███████║    ███████╗███████║██║  ██║
+# ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝    ╚══════╝╚══════╝╚═╝  ╚═╝
+
+
 alias vim='nvim'
 alias sk='sk --layout=reverse'
 alias ver='wezterm imgcat'
 alias sudo='doas'
 alias cmx='chmod +x'
-
-# alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
-
-alias cp="cp -iv"
-alias	mv="mv -iv"
-alias	rm="rm -vI"
-alias mkdir="mkdir -pv"
-
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -vI'
+alias mkdir='mkdir -pv'
 alias gitui='gitui -t mocha.ron'
 alias nnn='nnn -e'
-
-# alias bat='bat --paging=never'
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' #Cleanup orphaned packages
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 alias clock='tty-clock -sct -C 4'
-alias cpu="ps axch -o cmd:15,%cpu --sort=-%cpu | head"
-alias df='df -h'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias gpgexportprivkey="gpg --export-secret-keys --armor"
-alias gpgimportkey="gpg --import"
-alias gpglistkeys="gpg --list-keys --keyid-format LONG"
 alias grep='grep --color=auto'
-alias jctl="journalctl -p 3 -xb" #get the error messages from journalctl
-# alias l='exa -lahF --color=always --icons --sort=size --group-directories-first'
-# alias ls='exa -lhF --color=always --icons --sort=created -r --group-directories-first'
-# alias lst='exa -lahFT --color=always --icons --sort=size --group-directories-first'
-alias matrix='unimatrix -f -l ocCgGkS -s 96'
-alias mem="ps axch -o cmd:15,%mem --sort=-%mem | head"
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" # update your mirrors
-alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
-# alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl" #Recent Installed Packages
-alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
+alias mirror="sudo reflector -c us -c mx -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias sxiv='nsxiv -b'
 alias nsxiv='nsxiv -b'
 alias update='sudo pacman -Syyu'
 alias updatefonts='sudo fc-cache -fv'
-alias wget="wget -c" # continue the download
-
-# required functions
+alias ytsubs='ytfzf -c S -t -T swayimg-hyprland --preview-side=right --sort'
+alias wget="wget -c"
 
 ex ()
 {
@@ -70,4 +51,9 @@ ex ()
   else
     echo "'$1' is not a valid file"
   fi
+}
+
+mkcd()
+{
+  mkdir -pv "$1" && cd "$1"
 }
