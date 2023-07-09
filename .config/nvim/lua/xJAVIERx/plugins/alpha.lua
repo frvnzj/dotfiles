@@ -3,35 +3,96 @@ return {
     event = "VimEnter",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-        local alpha = require 'alpha'
-        local dashboard = require 'alpha.themes.dashboard'
-
         local function pick_color()
             local colors = { "String", "Identifier", "Keyword", "Number" }
             return colors[math.random(#colors)]
         end
 
-        dashboard.section.header.val = {
-            [[██╗  ██╗███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗██╗  ██╗]],
-            [[╚██╗██╔╝████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║╚██╗██╔╝]],
-            [[ ╚███╔╝ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ╚███╔╝ ]],
-            [[ ██╔██╗ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ██╔██╗ ]],
-            [[██╔╝ ██╗██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║██╔╝ ██╗]],
-            [[╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝]],
-        }
-        dashboard.section.header.opts.hl = pick_color()
-
-        dashboard.section.buttons.val = {
-            dashboard.button("e", "🗒️ Nuevo archivo", "<cmd>enew<cr>"),
-            dashboard.button("n", "📓 Neorg", "<cmd>Neorg index<cr>"),
-            dashboard.button("l", "💤 Lazy", "<cmd>Lazy update<cr>"),
-            dashboard.button("f", "🔎 Buscar archivo", "<cmd>Telescope find_files<cr>"),
-            dashboard.button("r", "📂 Archivos recientes", "<cmd>Telescope oldfiles<cr>"),
-            dashboard.button("g", "🐶 Grep", "<cmd>Telescope live_grep<cr>"),
-            dashboard.button("q", "❌ Salir", "<cmd>qa<cr>"),
+        local header = {
+            type = "text",
+            val = {
+                [[██╗  ██╗███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗██╗  ██╗]],
+                [[╚██╗██╔╝████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║╚██╗██╔╝]],
+                [[ ╚███╔╝ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ╚███╔╝ ]],
+                [[ ██╔██╗ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ██╔██╗ ]],
+                [[██╔╝ ██╗██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║██╔╝ ██╗]],
+                [[╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝]],
+            },
+            opts = {
+                position = "center",
+                hl = pick_color()
+            }
         }
 
-        dashboard.config.opts.noautocmd = true
+        local heading = {
+            type = "text",
+            val = "[ https://xjavierx.netlify.app/ ]",
+            opts = {
+                position = "center",
+                hl = "String",
+            },
+        }
+
+        local function button(sc, txt, keybind)
+            local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
+
+            local opts = {
+                position = "center",
+                text = txt,
+                shortcut = sc,
+                cursor = 3,
+                width = 35,
+                align_shortcut = "right",
+                hl_shortcut = "Number",
+                hl = "Function"
+            }
+            if keybind then
+                opts.keymap = { "n", sc_, keybind, { noremap = true, silent = true } }
+            end
+
+            return {
+                type = "button",
+                val = txt,
+                on_press = function()
+                    local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
+                    vim.api.nvim_feedkeys(key, "normal", false)
+                end,
+                opts = opts,
+            }
+        end
+
+        local buttons = {
+            type = "group",
+            val = {
+                button("e", "  Nuevo archivo", "<cmd>enew<cr>"),
+                button("n", "  Neorg", "<cmd>Neorg index<cr>"),
+                button("l", "󰒲  Lazy", "<cmd>Lazy update<cr>"),
+                button("f", "  Buscar archivo", "<cmd>Telescope find_files<cr>"),
+                button("r", "  Archivos recientes", "<cmd>Telescope oldfiles<cr>"),
+                button("g", "  Grep", "<cmd>Telescope live_grep<cr>"),
+                button("q", "󰗼  Salir", "<cmd>qa<cr>"),
+            },
+            opts = {
+                spacing = 1
+            }
+        }
+
+        local section = {
+            header = header,
+            heading = heading,
+            buttons = buttons
+        }
+
+        local opts = {
+            layout = {
+                { type = "padding", val = 2},
+                section.header,
+                { type = "padding", val = 1},
+                section.heading,
+                { type = "padding", val = 2},
+                section.buttons,
+            }
+        }
 
         local group = vim.api.nvim_create_augroup("CleanDashboard", {})
 
@@ -54,6 +115,6 @@ return {
             end,
         })
 
-        alpha.setup(dashboard.config)
+        require('alpha').setup(opts)
     end
 }
