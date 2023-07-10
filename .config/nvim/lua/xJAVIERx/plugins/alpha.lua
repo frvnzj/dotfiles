@@ -12,7 +12,7 @@ return {
 
         local term = {
             type = "terminal",
-            command = "cat | /path/to/logonvim",
+            command = "cat | " .. os.getenv("HOME") .. "/path/to/logonvim",
             width = 23,
             height = 14,
             opts = {
