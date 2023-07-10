@@ -3,10 +3,22 @@ return {
     event = "VimEnter",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
+        local alpha = require('alpha')
+        require'alpha.term'
         local function pick_color()
             local colors = { "String", "Identifier", "Keyword", "Number" }
             return colors[math.random(#colors)]
         end
+
+        local term = {
+            type = "terminal",
+            command = "cat | /path/to/logonvim",
+            width = 23,
+            height = 14,
+            opts = {
+                redraw = true
+            }
+        }
 
         local header = {
             type = "text",
@@ -79,17 +91,19 @@ return {
 
         local section = {
             header = header,
+            terminal = term,
             heading = heading,
             buttons = buttons
         }
 
         local opts = {
             layout = {
-                { type = "padding", val = 2},
-                section.header,
-                { type = "padding", val = 1},
-                section.heading,
-                { type = "padding", val = 2},
+                section.terminal,
+                -- { type = "padding", val = 5},
+                -- section.header,
+                -- { type = "padding", val = 1},
+                -- section.heading,
+                { type = "padding", val = 3},
                 section.buttons,
             }
         }
@@ -115,6 +129,6 @@ return {
             end,
         })
 
-        require('alpha').setup(opts)
+        alpha.setup(opts)
     end
 }
