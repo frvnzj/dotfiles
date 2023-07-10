@@ -34,7 +34,7 @@ wk.register({
             s = { "<cmd>Lazy sync<cr>", "Sync" },
         },
 
-        x = {
+        w = {
             name = "Writer",
             b = { "<cmd>vsp refs.bib<cr>", "Bibliografía" },
             c = { "<cmd>!compiler '%:p'<cr>", "Compiler" },
@@ -42,6 +42,8 @@ wk.register({
             t = { "<cmd>Telescope bibtex theme=dropdown<cr>", "LaTeX.bib" },
             z = { "<cmd>!opout '%:p'<cr>", "Zathura" },
         },
+
+        z = { "<cmd>ZenMode<cr>", "ZenMode" },
     },
 }
 )
