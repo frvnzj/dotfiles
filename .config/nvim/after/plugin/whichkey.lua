@@ -3,6 +3,16 @@ wk.register({
     ["<leader>"] = {
         ["|"] = { "<cmd>vs<cr>", "VSplit" },
 
+        b = {
+            name = "Buffers",
+            b = { "<cmd>Telescope buffers<cr>", "Lista" },
+            n = { "<cmd>bn<cr>", "Buffer siguiente" },
+            p = { "<cmd>bp<cr>", "Buffer anterior" },
+            s = { "<cmd>vertical sball<cr>", "Split buffers" },
+        },
+
+        c = { "<cmd>bd<cr>", "Cerrar buffer" },
+
         e = { "<cmd>NvimTreeToggle<cr>", "Explorar" },
 
         f = {
