@@ -1,5 +1,12 @@
 return {
     "NvChad/nvim-colorizer.lua",
     cmd = { "ColorizerToggle", "ColorizerAttachToBuffer", "ColorizerDetachFromBuffer", "ColorizerReloadAllBuffers" },
-    opts = { user_default_options = { names = false } },
+    opts = {
+        user_default_options = {
+            names = false,
+            RRGGBBAA = true,
+            AARRGGBB = true,
+            always_update = true
+        }
+    },
 }

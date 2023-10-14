@@ -1,5 +1,3 @@
-vim.opt.termguicolors = true
-
 local line_ok, feline = pcall(require, "feline")
 if not line_ok then
     return
@@ -68,28 +66,28 @@ local c = {
         provider = "git_diff_added",
         hl = {
             fg = "green",
-            bg = "darkblue",
+            -- bg = "darkblue",
         },
-        left_sep = "block",
-        right_sep = "block",
+        -- left_sep = "block",
+        -- right_sep = "block",
     },
     gitDiffRemoved = {
         provider = "git_diff_removed",
         hl = {
             fg = "red",
-            bg = "darkblue",
+            -- bg = "darkblue",
         },
-        left_sep = "block",
-        right_sep = "block",
+        -- left_sep = "block",
+        -- right_sep = "block",
     },
     gitDiffChanged = {
         provider = "git_diff_changed",
         hl = {
             fg = "fg",
-            bg = "darkblue",
+            -- bg = "darkblue",
         },
-        left_sep = "block",
-        right_sep = "right_filled",
+        -- left_sep = "block",
+        -- right_sep = "right_filled",
     },
     separator = {
         provider = "",
@@ -135,7 +133,7 @@ local c = {
             bg = "darkblue",
             style = "bold",
         },
-        left_sep = "left_filled",
+        left_sep = "slant_left",
         right_sep = "block",
     },
     file_type = {
@@ -152,7 +150,7 @@ local c = {
             style = "bold",
         },
         left_sep = "block",
-        right_sep = "block",
+        right_sep = "slant_right",
     },
     position = {
         provider = "position",
@@ -186,14 +184,15 @@ local c = {
 local left = {
     c.vim_mode,
     c.gitBranch,
+    c.file_type,
+    -- c.fileinfo,
     c.gitDiffAdded,
     c.gitDiffRemoved,
     c.gitDiffChanged,
-    c.separator,
+    -- c.separator,
 }
 
 local middle = {
-    c.fileinfo,
     c.diagnostic_errors,
     c.diagnostic_warnings,
     c.diagnostic_info,
@@ -202,7 +201,7 @@ local middle = {
 
 local right = {
     c.lsp_client_names,
-    c.file_type,
+    -- c.file_type,
     c.position,
     c.line_percentage,
     c.scroll_bar,

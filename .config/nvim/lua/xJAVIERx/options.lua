@@ -1,44 +1,47 @@
-vim.cmd.colorscheme "catppuccin"
+vim.cmd[[colorscheme catppuccin]]
 
-vim.opt.clipboard = "unnamedplus"
+vim.o.clipboard = "unnamedplus"
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.o.nu = true
+vim.o.relativenumber = true
+vim.o.smd = false
 
-vim.opt.spelllang = "es_mx"
+vim.o.spelllang = "es_mx"
 
-vim.opt.title = true
+vim.o.title = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 
-vim.opt.smartindent = true
+vim.o.bri = true
+vim.o.smartindent = true
 
-vim.opt.wrap = true
+vim.o.wrap = false
 
-vim.opt.swapfile = false
-vim.opt.backup = false
+vim.o.swapfile = false
+vim.o.backup = false
 
-vim.opt.udir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vim.o.udir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undofile = true
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
+vim.o.hlsearch = false
+vim.o.incsearch = true
+vim.o.ignorecase = true
 
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+vim.o.splitbelow = true
+vim.o.splitright = true
 
-vim.opt.tgc = true
+vim.o.tgc = true
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+vim.o.scrolloff = 8
+vim.o.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+vim.o.updatetime = 100
+vim.o.cot = 'menuone,noselect'
 
-vim.opt.laststatus = 3
+vim.o.laststatus = 3
 
-vim.opt.conceallevel = 3
+vim.o.conceallevel = 3

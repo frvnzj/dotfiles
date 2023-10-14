@@ -1,6 +1,15 @@
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>", { silent = true, desc = "chmod +x" })
+vim.keymap.set("n", "<leader>m", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "Reemplazar palabra" })
+
+vim.keymap.set("n", "<leader>ne", ":Neorg export to-file ~/Neorg/markdown/", { desc = "Export" })
+vim.keymap.set("n", "<leader>nm", ":Neorg inject-metadata<CR>", { desc = "Metadata" })
+
+vim.keymap.set("n", "<leader>wm", ":!sed -i '1i---\\nfontfamily: imfellEnglish\\nfontsize: 12pt\\ngeometry:\\n    - margin=2.5cm\\n---\\n' %<cr>", { silent = true, desc = "MetaMD" })
+
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-h>", "<C-w>h")

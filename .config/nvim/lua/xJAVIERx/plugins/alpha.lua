@@ -4,7 +4,7 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
         local alpha = require('alpha')
-        require'alpha.term'
+        require 'alpha.term'
         local function pick_color()
             local colors = { "String", "Identifier", "Keyword", "Number" }
             return colors[math.random(#colors)]
@@ -23,12 +23,14 @@ return {
         local header = {
             type = "text",
             val = {
-                [[██╗  ██╗███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗██╗  ██╗]],
-                [[╚██╗██╔╝████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║╚██╗██╔╝]],
-                [[ ╚███╔╝ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ╚███╔╝ ]],
-                [[ ██╔██╗ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ██╔██╗ ]],
-                [[██╔╝ ██╗██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║██╔╝ ██╗]],
-                [[╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝]],
+                [[                                                                     ]],
+                [[       ████ ██████           █████      ██                     ]],
+                [[      ███████████             █████                             ]],
+                [[      █████████ ███████████████████ ███   ███████████   ]],
+                [[     █████████  ███    █████████████ █████ ██████████████   ]],
+                [[    █████████ ██████████ █████████ █████ █████ ████ █████   ]],
+                [[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
+                [[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
             },
             opts = {
                 position = "center",
@@ -98,12 +100,11 @@ return {
 
         local opts = {
             layout = {
-                section.terminal,
-                -- { type = "padding", val = 5},
-                -- section.header,
+                { type = "padding", val = 2 },
+                section.header,
                 -- { type = "padding", val = 1},
                 -- section.heading,
-                { type = "padding", val = 3},
+                { type = "padding", val = 3 },
                 section.buttons,
             }
         }

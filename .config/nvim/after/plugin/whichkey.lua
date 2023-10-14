@@ -3,6 +3,8 @@ wk.register({
     ["<leader>"] = {
         ["|"] = { "<cmd>vs<cr>", "VSplit" },
 
+        a = { "<cmd>enew<cr>", "Nuevo archivo" },
+
         b = {
             name = "Buffers",
             b = { "<cmd>Telescope buffers<cr>", "Lista" },
@@ -12,8 +14,6 @@ wk.register({
         },
 
         c = { "<cmd>bd<cr>", "Cerrar buffer" },
-
-        e = { "<cmd>NvimTreeToggle<cr>", "Explorar" },
 
         f = {
             name = "Telescope",
@@ -32,17 +32,27 @@ wk.register({
             m = { "<cmd>Mason<cr>", "Mason" },
         },
 
-        n = { "<cmd>enew<cr>", "Nuevo archivo" },
+        n = {
+            name = "Neorg",
+            i = { "<cmd>Neorg index<cr>", "Index" },
+            j = { "<cmd>Neorg journal today<cr>", "Journal" },
+        },
 
-        o = { "<cmd>Neorg index<cr>", "Neorg" },
+        p = {
+            name = "PrevMD",
+            a = { "<cmd>PeekOpen<cr>", "Abrir" },
+            s = { "<cmd>PeekClose<cr>", "Cerrar" },
+        },
 
-        s = { "<cmd>setlocal spell!<cr>", "Corrector" },
-
-        u = {
+        r = {
             name = "Lazy",
             u = { "<cmd>Lazy update<cr>", "Update" },
             s = { "<cmd>Lazy sync<cr>", "Sync" },
         },
+
+        s = { "<cmd>setlocal spell!<cr>", "Corrector" },
+
+        u = { "<cmd>ColorizerToggle<cr>", "Colorizer" },
 
         w = {
             name = "Writer",
