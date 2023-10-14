@@ -1,10 +1,17 @@
+-- ██╗    ██╗███████╗███████╗████████╗███████╗██████╗ ███╗   ███╗
+-- ██║    ██║██╔════╝╚══███╔╝╚══██╔══╝██╔════╝██╔══██╗████╗ ████║
+-- ██║ █╗ ██║█████╗    ███╔╝    ██║   █████╗  ██████╔╝██╔████╔██║
+-- ██║███╗██║██╔══╝   ███╔╝     ██║   ██╔══╝  ██╔══██╗██║╚██╔╝██║
+-- ╚███╔███╔╝███████╗███████╗   ██║   ███████╗██║  ██║██║ ╚═╝ ██║
+--  ╚══╝╚══╝ ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝
+
 local wezterm = require 'wezterm'
 
 local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
 custom.background = "#11111b"
 
 local function font_with_fallback(name, params)
-  local names = { name, 'Symbols Nerd Font Mono' }
+  local names = { name, 'Symbols Nerd Font Mono', 'uzura_font' }
   return wezterm.font_with_fallback(names, params)
 end
 
@@ -43,8 +50,10 @@ return {
     },
   },
 
+  harfbuzz_features = { 'calt', 'ss01' },
+
   warn_about_missing_glyphs = false,
-  font_size = 11.5,
+  font_size = 13,
   line_height = 1.0,
   dpi = 96.0,
 
@@ -272,14 +281,14 @@ return {
   bold_brightens_ansi_colors = true,
   -- Padding
   window_padding = {
-    left = 30,
-    right = 30,
-    top = 25,
-    bottom = 20,
+    left = 15,
+    right = 15,
+    top = 10,
+    bottom = 10,
   },
 
-  initial_cols = 100,
-  initial_rows = 26,
+  initial_cols = 120,
+  initial_rows = 30,
 
   -- Tab Bar
   enable_tab_bar = true,
@@ -291,6 +300,6 @@ return {
   -- General
   automatically_reload_config = true,
   inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },
-  window_background_opacity = 1.0,
+  window_background_opacity = 0.6,
   window_close_confirmation = 'NeverPrompt',
 }
