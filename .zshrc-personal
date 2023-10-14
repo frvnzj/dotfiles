@@ -6,8 +6,9 @@
 # ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝    ╚══════╝╚══════╝╚═╝  ╚═╝
 
 
+alias man='batman'
 alias vim='nvim'
-alias sk='sk --layout=reverse'
+alias sk='sk --reverse'
 alias ver='wezterm imgcat'
 alias sudo='doas'
 alias cmx='chmod +x'
@@ -25,6 +26,8 @@ alias sxiv='nsxiv -b'
 alias nsxiv='nsxiv -b'
 alias update='sudo pacman -Syyu'
 alias updatefonts='sudo fc-cache -fv'
+alias yt='yt-dlp --embed-metadata -i'
+alias yta='yt -x -f bestaudio/best'
 alias ytsubs='ytfzf -c S -t -T swayimg-hyprland --preview-side=right --sort'
 alias wget="wget -c"
 
