@@ -1,4 +1,5 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>", { silent = true, desc = "chmod +x" })
 vim.keymap.set("n", "<leader>m", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "Reemplazar palabra" })

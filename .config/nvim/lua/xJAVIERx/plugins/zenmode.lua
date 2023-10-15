@@ -9,6 +9,11 @@ return {
                 nu = false,
                 relativenumber = false
             }
+        },
+        plugins = {
+            options = {
+                laststatus = 0
+            }
         }
     }
 }

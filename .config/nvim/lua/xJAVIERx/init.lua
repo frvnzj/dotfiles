@@ -1,4 +1,4 @@
 require("xJAVIERx.maps")
-require("xJAVIERx.lazy")
 require("xJAVIERx.options")
+require("xJAVIERx.lazy")
 require("xJAVIERx.autocommands")

@@ -1,10 +1,10 @@
-vim.cmd[[colorscheme catppuccin]]
+vim.o.termguicolors = true
 
 vim.o.clipboard = "unnamedplus"
 
-vim.o.nu = true
+vim.wo.number = true
 vim.o.relativenumber = true
-vim.o.smd = false
+vim.o.showmode = false
 
 vim.o.spelllang = "es_mx"
 
@@ -15,7 +15,7 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
-vim.o.bri = true
+vim.o.breakindent = true
 vim.o.smartindent = true
 
 vim.o.wrap = false
@@ -33,15 +33,20 @@ vim.o.ignorecase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.o.tgc = true
-
 vim.o.scrolloff = 8
-vim.o.signcolumn = "yes"
+
+vim.wo.signcolumn = 'yes'
+
 vim.opt.isfname:append("@-@")
 
-vim.o.updatetime = 100
-vim.o.cot = 'menuone,noselect'
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+
+vim.o.completeopt = 'menuone,noselect'
 
 vim.o.laststatus = 3
-
 vim.o.conceallevel = 3
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
