@@ -9,6 +9,7 @@ return {
             integrations = {
                 mason = true,
                 mini = true,
+                neotree = true,
                 telescope = {
                     enabled = true,
                     style = "nvchad"

@@ -15,6 +15,8 @@ wk.register({
 
         c = { "<cmd>bd<cr>", "Cerrar buffer" },
 
+        e = { "<cmd>Neotree position=float<cr>", "NeoTree" },
+
         f = {
             name = "Telescope",
         },
@@ -36,6 +38,7 @@ wk.register({
             name = "Neorg",
             i = { "<cmd>Neorg index<cr>", "Index" },
             j = { "<cmd>Neorg journal today<cr>", "Journal" },
+            m = { "<cmd>Neorg inject-metadata<cr>", "Metadata" }
         },
 
         p = {
@@ -44,11 +47,7 @@ wk.register({
             s = { "<cmd>PeekClose<cr>", "Cerrar" },
         },
 
-        r = {
-            name = "Lazy",
-            u = { "<cmd>Lazy update<cr>", "Update" },
-            s = { "<cmd>Lazy sync<cr>", "Sync" },
-        },
+        r = { "<cmd>Lazy<cr>", "Lazy" },
 
         s = { "<cmd>setlocal spell!<cr>", "Corrector" },
 

@@ -46,7 +46,3 @@ vim.o.completeopt = 'menuone,noselect'
 
 vim.o.laststatus = 3
 vim.o.conceallevel = 3
-
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
