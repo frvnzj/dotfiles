@@ -1,0 +1,21 @@
+* {
+    base00: #{{colors16.base00}}; 
+    base01: #{{colors16.base01}}; 
+    base02: #{{colors16.base02}}; 
+    base03: #{{colors16.base03}}; 
+    base04: #{{colors16.base04}}; 
+    base05: #{{colors16.base05}}; 
+    base06: #{{colors16.base06}}; 
+    base07: #{{colors16.base07}};
+    base08: #{{colors16.base08}}; 
+    base09: #{{colors16.base09}}; 
+    base0A: #{{colors16.base0A}}; 
+    base0B: #{{colors16.base0B}}; 
+    base0C: #{{colors16.base0C}}; 
+    base0D: #{{colors16.base0D}}; 
+    base0E: #{{colors16.base0E}}; 
+    base0F: #{{colors16.base0F}};
+
+    background: @base01;
+    text:       @base06;
+}

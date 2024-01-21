@@ -37,6 +37,7 @@ plug "zap-zsh/fzf"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zap-zsh/completions"
+plug "zsh-users/zsh-history-substring-search"
 
 
 #    ___                      __      __         __    __     ____
@@ -44,5 +45,15 @@ plug "zap-zsh/completions"
 #  / ___/ __/ _ \/  ' \/ _ \/ __/ _/_/  / __/ _  / /___/> >   / /_
 # /_/  /_/  \___/_/_/_/ .__/\__/ /_/    \__/\_,_/      /_/   /___/
 
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/frvnzj/.bun/_bun" ] && source "/home/frvnzj/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

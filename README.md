@@ -1,7 +1,7 @@
 # Scripts y configuraciones
 
-![Screenshot](./assets/xssx.png)
+![screenxhyprx](assets/xhyprx.png)
 
-![KeysScreenshot](./assets/keysscreen.png)
+![xnvimx](assets/xnvimx.png)
 
-![NeovimScreenshot](./assets/nvimscreens.png)
+![screenxkeysx](assets/screenxkeysx.png)

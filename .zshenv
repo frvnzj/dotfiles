@@ -11,6 +11,7 @@
 #  / // / / __/ _/ \ \ / -_) __(_-<
 # /____/_/_/ /___//_\_\\__/\__/___/
 
+path+=('/home/frvnzj/.local/bin/statusbar')
 path+=('/home/frvnzj/.scripts')
 path+=('/home/frvnzj/.cargo/bin')
 path+=('/home/frvnzj/.yarn/bin')

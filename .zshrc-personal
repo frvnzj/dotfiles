@@ -55,8 +55,3 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
-mkcd()
-{
-  mkdir -pv "$1" && cd "$1"
-}

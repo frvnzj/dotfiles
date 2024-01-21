@@ -1,59 +1,63 @@
+/* ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗  */
+/* ██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗ */
+/* ██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝ */
+/* ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗ */
+/* ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║ */
+/*  ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ */
+
+@import "../../.cache/wal/colors-waybar.css";
+
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "Symbols Nerd Font Mono", "Cascadia Code";
-    font-weight: bold;
-    font-size: 11px;
-    min-height: 0;
+  border: none;
+  border-radius: 0;
+  font-family: "SF Pro", "Symbols Nerd Font Mono";
+  /* font-weight: bold; */
+  font-size: 11.5px;
 }
 
 window#waybar {
-    background: #181825;
-    color: #cdd6f4;
+  background: @color5;
+  color: #cdd6f4;
 }
 
 tooltip {
-    background: #1e1e2e;
-    opacity: 0.8;
-    border-radius: 6px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+  background: #11111b;
+  opacity: 0.8;
 }
 
-tooltip label{
-    color: #cdd6f4;
+tooltip label {
+  color: #cdd6f4;
 }
 
 #workspaces button {
-    padding: 0px;
-    color: #8aadf4;
-    margin-right: 5px;
+  color: #cdd6f4;
+  margin: 0px;
+  padding: 0px 6px 0px 6px;
+  background-color: #11111b;
 }
 
 #workspaces button.active {
-    color: #a6e3a1;
-}
-
-#workspaces button.focused {
-    color: #ed8796;
+  /* color: #11111b; */
+  background: @color5;
 }
 
 #workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
-    border-radius: 10px;
+  color: #11111b;
+  background: #a6e3a1;
+}
+
+#workspaces button.empty {
+  color: #45475a;
 }
 
 #workspaces button:hover {
-    background: #11111b;
-    color: #cdd6f4;
-    border-radius: 10px;
+  /* background: #11111b; */
+  color: #cdd6f4;
 }
 
+#custom-wall,
 #custom-launch_wofi,
-#custom-notification
-#window,
+#custom-recording,
 #cpu,
 #disk,
 #tray,
@@ -62,49 +66,30 @@ tooltip label{
 #battery,
 #pulseaudio,
 #pulseaudio.microphone,
-#workspaces,
 #backlight {
-    padding: 0px 6px;
+  padding: 0px 6px 0px 0px;
+  background-color: #11111b;
 }
 
-#cpu,
-#memory,
-#disk,
-#backlight,
-#pulseaudio,
-#pulseaudio.microphone {
-    background: #313244;
-    margin: 3px 0px 3px 0px;
-}
-
-#backlight,
-#cpu {
-    border-radius: 4px 0px 0px 4px;
-}
-
-#pulseaudio.microphone,
-#disk {
-    border-radius: 0px 4px 4px 0px;
-}
-
-#workspaces {
-    padding-right: 0px;
-    padding-left: 5px;
-}
-
-#window {
-    color: #DCE0E8;
-}
-
-#custom-launch_wofi {
-    color: #89b4fa;
-    margin-left: 4px;
+#custom-winmode {
+  color: #cdd6f4;
+  margin: 0px;
+  padding: 0px 6px 0px 6px;
+  background-color: #11111b;
 }
 
 #custom-notification {
-  color: #f9e2af;
+  padding: 0px 6px 0px 6px;
+  background-color: #11111b;
+}
+
+#window {
+  /* color: #11111b; */
   margin-left: 6px;
-  margin-right: 6px;
+}
+
+window#waybar.empty {
+  background-color: #11111b;
 }
 
 #custom-recording {
@@ -113,11 +98,10 @@ tooltip label{
 
 #custom-pacman {
   color: #babbf1;
-  margin-left: 4px;
 }
+
 #custom-pacman.pending-updates {
-  color: #94E2D5;
-  margin-left: 4px;
+  color: #94e2d5;
 }
 
 @keyframes blink {

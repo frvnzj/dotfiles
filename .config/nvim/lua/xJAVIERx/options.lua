@@ -1,48 +1,58 @@
-vim.o.termguicolors = true
+vim.opt.clipboard = "unnamedplus"
 
-vim.o.clipboard = "unnamedplus"
+vim.opt.mouse = "a"
 
-vim.wo.number = true
-vim.o.relativenumber = true
-vim.o.showmode = false
+vim.opt.showmode = false
 
-vim.o.spelllang = "es_mx"
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-vim.o.title = true
+vim.opt.spelllang = "es_mx"
 
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
+vim.opt.title = true
 
-vim.o.breakindent = true
-vim.o.smartindent = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
-vim.o.wrap = false
+vim.opt.breakindent = true
+vim.opt.smartindent = true
 
-vim.o.swapfile = false
-vim.o.backup = false
+vim.opt.wrap = false
 
-vim.o.udir = os.getenv("HOME") .. "/.vim/undodir"
-vim.o.undofile = true
+vim.opt.ruler = false
 
-vim.o.hlsearch = false
-vim.o.incsearch = true
-vim.o.ignorecase = true
+vim.opt.swapfile = false
+vim.opt.backup = false
 
-vim.o.splitbelow = true
-vim.o.splitright = true
+vim.opt.udir = os.getenv "HOME" .. "/.vim/undodir"
+vim.opt.undofile = true
 
-vim.o.scrolloff = 8
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-vim.wo.signcolumn = 'yes'
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
-vim.opt.isfname:append("@-@")
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
 
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.opt.signcolumn = "yes"
+-- vim.opt.colorcolumn = "70"
 
-vim.o.completeopt = 'menuone,noselect'
+-- vim.opt.isfname:append("@-@")
+vim.opt.shortmess:append "c"
 
-vim.o.laststatus = 3
-vim.o.conceallevel = 3
+vim.opt.timeoutlen = 500
+vim.opt.updatetime = 100
+
+vim.opt.completeopt = { "menuone", "noselect" }
+
+vim.opt.laststatus = 3
+vim.opt.conceallevel = 2
+
+vim.g.netrw_banner = 0
+vim.g.netrw_mouse = 2

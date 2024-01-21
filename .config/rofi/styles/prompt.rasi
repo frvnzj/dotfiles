@@ -1,0 +1,47 @@
+@import "../colors.rasi"
+
+* {
+    background-color:   transparent;
+    text-color:         @text;
+    border-radius:      10px;
+}
+
+window {
+    location:           center;
+    fullscreen:         false;
+    width:              30%;
+}
+
+mainbox {
+    background-color:   @base00;
+}
+
+inputbar {
+    padding:                     5%;
+    background-image:            url("~/Pictures/wallpapers/the-cleveland-museum-of-art-AiD3Pkwmtt0-unsplash.jpg", width);
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    expand:             false;
+    str:                "";
+    margin:             1em 1em;
+    padding:            0.75em 1.25em;
+}
+
+entry {
+    enabled:            true;
+    margin:             1em 1em;
+    padding:            0.75em 1.25em;
+    border-radius:      20px;
+    background-color:   @base00;
+}
+
+listview {
+    fixed-height:       false;
+}
+
+textbox {
+    text-color:         @base0E;
+    padding:            1%;
+}
