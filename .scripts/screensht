@@ -8,19 +8,20 @@ _ORIGINAL_DIR_=$_SCREENSHOT_DIR_/Original
 _LOG_FILE_="$_SCREENSHOT_DIR_/.screensht.log"
 # Color
 _FG_COLOR_='#cdd6f4'
-_BG_COLOR_='#1e1e2e'
+_BG_COLOR_='#11111b'
 _BG_SIZE_=10
 # Border Size Applied when value greater than or equal 3
 _BORDER_SIZE_=0
 _SHADOW_SIZE_='100x40+0+16'  # [ weight ] x [ radius ] + [ horizontal ] x [ vertical ]
 _ROUNDED_CORNER_=8
 # Author Config
-_AUTHOR_POST_=( 'South' '+0+15' )
-_AUTHOR_NAME_=" $USER"
+_AUTHOR_POST_=( 'South' '+0+0' )
+_AUTHOR_NAME_=""
+# _AUTHOR_NAME_="󰹑 Imagen por Javier Gómez"
 _AUTHOR_COLOR_='#b4befe'
 # Get Lists Font With "convert -list font | grep -iE 'font:.*' | nl"
 _FONT_SIZE_=11
-_FONT_='Cartograph-CF-Regular-Nerd-Font-Complete'
+_FONT_='Liga SFMono Nerd Font'
 
 function check() {
     if [[ $? -eq 1 && ${PIPESTATUS[0]} -eq 1 ]]; then

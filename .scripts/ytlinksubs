@@ -1,0 +1,21 @@
+#!/bin/sh
+
+ytchan="$(wl-paste -n | cut -d@ -f2)"
+ytfile="$HOME/.config/ytfzf/subscriptions"
+
+if rg -q "# $ytchan" "$ytfile"; then
+  notify-send "⛔ $ytchan" "¡Ya estás suscrito a este canal!"
+else
+  echo "# $ytchan" >> "$ytfile" && notify-send "👁️ Suscribiéndote a:" "$ytchan"
+fi
+
+sleep 1
+
+ytlink="$(wl-paste -n)"
+ytsub="$(ytfzf --channel-link="$ytlink")"
+
+if rg -q "^$ytsub$" "$ytfile"; then
+  notify-send "⛔ $ytsub" "¡Ya estás suscrito a este canal!"
+else
+  echo "$ytsub" >> "$ytfile" && notify-send "🌐 Te has suscrito al canal" "$ytchan $ytsub"
+fi

@@ -3,8 +3,8 @@
 declare -A options=(
 	["🖥️ Hyprland"]="$HOME/.config/hypr/hyprland.conf"
 	["📜 EditScript"]="$HOME/.scripts/wayeditfile"
-	["🏠 StartPage"]="$HOME/sp/index.html"
-	["⌨️ Nvim"]="$HOME/.config/nvim/lua/user/init.lua"
+	# ["🏠 StartPage"]="$HOME/sp/index.html"
+	["⌨️ Nvim"]="$HOME/.config/nvim/init.lua"
 	["  ZSH"]="$HOME/.zshrc"
 	["  ZSH-alias"]="$HOME/.zshrc-personal"
 )

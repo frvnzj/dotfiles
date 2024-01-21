@@ -1,0 +1,18 @@
+#!/bin/bash
+
+_area="Area seleccionada"
+_full="Fullscreen (delay 3 sec)"
+
+_skrn="$_area\n$_full"
+
+choice=$(echo -e "$_skrn" | rofi -dmenu -replace -config ~/.config/rofi/config-screenshot.rasi -i -no-show-icons -l 2 -width 30)
+
+case $choice in
+    $_area)
+        grimblast save area - | swappy -f -
+    ;;
+    $_full)
+        sleep 3
+        grimblast save screen - | swappy -f -
+    ;;
+esac
