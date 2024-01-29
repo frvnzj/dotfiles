@@ -4,12 +4,14 @@ export BEMENU_OPTS='-i -l 10 -H 24 --fb "#1e1e2e" --ff "#94e2d5" --nb "#1e1e2e" 
 
 select_pkg=$(curl -s "https://www.ctan.org/json/2.0/packages" | jq '.' | rg -o '"key".*|"caption".*' | sed 's/".*: \|"//g' | sed -z 's/,\n/ - /g' | bemenu -p 'LaTeX docs   : ' | awk '{print $1}')
 
-_urls=$(curl -s "https://www.ctan.org/json/2.0/pkg/$select_pkg" | jq '.documentation' | rg -o '"details".*|"href".*' | sed 's/".*: //g' | sed -z 's/",\n"/ - /g' | bemenu -p 'Docs' | rg -o '/.*[^"]')
+_urls=$(curl -s "https://www.ctan.org/json/2.0/pkg/$select_pkg" | jq '.documentation' | rg -o '"details".*|"href".*' | sed 's/".*: //g' | sed -z 's/",\n"/ - /g' | bemenu -p "$select_pkg docs  : " | rg -o '/.*[^"]')
 
-if echo "$_urls" | rg -q ".pdf"; then
-	zathura https://mirrors.ctan.org"$_urls" >/dev/null 2>&1
-elif echo "$_urls" | rg -q ".md|README|.txt"; then
-	wezterm -e nvim -R https://mirrors.ctan.org"$_urls" >/dev/null 2>&1
+_link="https://mirrors.mit.edu/CTAN$_urls"
+
+if echo "$_link" | rg -q ".pdf"; then
+	zathura "$_link" > /dev/null &
+elif echo "$_link" | rg -q ".md|README|.txt"; then
+	curl -sL "$_link">"/tmp/$(echo "$_link" | sed 's|.*/||;s/%20/ /g')" && setsid -f wezterm start --always-new-process nvim -R "/tmp/$(echo "$_link" | sed 's|.*/||;s/%20/ /g')" > /dev/null &
 else
 	exit 1
 fi
