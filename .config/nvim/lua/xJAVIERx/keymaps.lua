@@ -17,19 +17,36 @@ keymap("n", "<S-Tab>", "<cmd>bp<cr>", opts)
 
 keymap("n", "<leader>ne", ":Neorg export to-file ~/Neorg/markdown/", { noremap = true, silent = true, desc = "Export" })
 
-keymap("n", "<leader>wa", "<cmd>!latexmk -pdf %<cr>", { noremap = true, silent = true, desc = "LaTeXmk" })
+keymap(
+  "n",
+  "<leader>wa",
+  "<cmd>!latexmk -pdf -pdflatex='pdflatex -interaction=nonstopmode -synctex=-1' '%:p'<cr>",
+  { noremap = true, silent = true, desc = "LaTeXmk" }
+)
+-- keymap("n", "<leader>wa", "<cmd>TexlabBuild<cr>", { noremap = true, desc = "TexlabBuild" })
 keymap("n", "<leader>wb", "<cmd>vsp ~/Documentos/bib/refs.bib<cr>", { noremap = true, silent = true, desc = "BibFile" })
 keymap("n", "<leader>wc", "<cmd>!compiler '%:p'<cr>", { noremap = true, silent = true, desc = "Compiler" })
 keymap("n", "<leader>wd", "<cmd>!latexdoc.sh<cr>", { noremap = true, silent = true, desc = "LaTeX Docs" })
+keymap("n", "<leader>wo", "<cmd>!opout '%:p'<cr>", { noremap = true, silent = true, desc = "Opout" })
 keymap("n", "<leader>ws", "<cmd>setlocal spell!<cr>", { noremap = true, silent = true, desc = "Corrector" })
-keymap("n", "<leader>wt", "<cmd>!typst -c %<cr>", { noremap = true, silent = true, desc = "Typst" })
-keymap("n", "<leader>wz", "<cmd>!opout '%:p'<cr>", { noremap = true, silent = true, desc = "Zathura" })
+keymap("n", "<leader>wt", "<cmd>!typst c %<cr>", { noremap = true, silent = true, desc = "Typst" })
 keymap(
   "n",
   "<leader>wm",
   ":!sed -i '1i---\\nfontfamily: imfellEnglish\\nfontsize: 12pt\\ngeometry:\\n    - margin=2.5cm\\n---\\n' %<cr>",
   { noremap = true, silent = true, desc = "metaMark" }
 )
+
+vim.api.nvim_create_user_command("ZathuraSyncTeX", function()
+  vim.cmd [[
+  let _pos = line(".") .. ":" .. col(".")
+  exec "silent !zathura '%:p:r'.pdf --synctex-forward " .. _pos .. ":" .. "%:p" .. "& disown"
+  redraw!
+  ]]
+end, {})
+
+keymap("n", "<leader>wz", "<cmd>ZathuraSyncTeX<cr>", { noremap = true, silent = true, desc = "ZathuraTeX" })
+-- keymap("n", "<leader>wz", "<cmd>TexlabForward<cr>", { noremap = true, desc = "ZathuraTeX" })
 
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
