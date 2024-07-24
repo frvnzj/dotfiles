@@ -1,0 +1,10 @@
+#!/bin/sh
+
+killall wlsunset;
+if [ $# -eq 1 ] ; then
+    temphigh=$(( $1 + 1 ))
+    templow=$1
+    wlsunset -t $templow -T $temphigh &> /dev/null &
+else
+    killall wlsunset;
+fi

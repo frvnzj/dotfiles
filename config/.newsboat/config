@@ -1,0 +1,5 @@
+auto-reload yes
+
+include ~/.newsboat/dark
+
+browser linkhandler

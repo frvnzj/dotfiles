@@ -1,0 +1,22 @@
+#!/bin/env bash
+
+declare -A options=(
+	["🖥️ Hyprland"]="$HOME/.config/hypr/hyprland.conf"
+	["📜 EditScript"]="$HOME/.scripts/wayeditfile"
+	["🏠 StartPage"]="$HOME/sp/index.html"
+	["⌨️ Nvim"]="$HOME/.config/nvim/lua/user/init.lua"
+	["  ZSH"]="$HOME/.zshrc"
+	["  ZSH-alias"]="$HOME/.zshrc-personal"
+)
+
+choice=$(printf '%s\n' "${!options[@]}" | sort -u | bemenu -i -l 15 -H 24 --fb "#1e1e2e" --ff "#94e2d5" --nb "#1e1e2e" --nf "#f5e0dc" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#cba6f7" --hf "#89b4fa" --nf "#f5e0dc" --af "#f5e0dc" --ab "#1e1e2e" --fn "JetBrainsMono Nerd Font 11" -p ' Editar 👨‍💻:')
+
+if [ "$choice" ]; then
+
+	wezterm -e nvim "${options[$choice]}"
+
+else
+
+	exit 1
+
+fi

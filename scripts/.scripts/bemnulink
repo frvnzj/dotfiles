@@ -1,0 +1,18 @@
+#!/bin/sh
+
+export BEMENU_OPTS='-i -l 20 -H 20 --fb "#1e1e2e" --ff "#94e2d5" --nb "#1e1e2e" --nf "#f5e0dc" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#cba6f7" --hf "#89b4fa" --nf "#f5e0dc" --af "#f5e0dc" --ab "#1e1e2e"'
+# Feed this script a link and it will give dmenu
+# some choice programs to use to open it.
+lvim=~/.local/bin/lvim
+feed="${1:-$(printf "%s" | bemenu -p 'Paste URL or file path')}"
+
+case "$(printf "sxiv\\nsetbg\\nPDF\\nbrowser\\nvim\\nmpv\\nqueue yt-dlp\\nqueue yt-dlp audio" | bemenu -p "¿Abrir con?")" in
+	mpv) setsid -f mpv -quiet "$feed" >/dev/null 2>&1 ;;
+	"queue yt-dlp") qndl "$feed" >/dev/null 2>&1 ;;
+	"queue yt-dlp audio") qndl "$feed" 'yt-dlp -o "%(title)s.%(ext)s" -f bestaudio --embed-metadata --restrict-filenames' ;;
+	PDF) curl -sL "$feed" > "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")" && zathura "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")"  >/dev/null 2>&1 ;;
+	sxiv) curl -sL "$feed" > "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")" && nsxiv -a "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")"  >/dev/null 2>&1 ;;
+	vim) curl -sL "$feed" > "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")" && setsid -f wezterm -e $lvim "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")"  >/dev/null 2>&1 ;;
+	setbg) curl -L "$feed" > $HOME/.cache/pic ; swaybg -m fill -i $HOME/.cache/pic >/dev/null 2>&1 ;;
+  browser) setsid -f librewolf "$feed" >/dev/null 2>&1 ;;
+esac

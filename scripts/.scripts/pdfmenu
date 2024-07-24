@@ -1,0 +1,15 @@
+#!/bin/sh
+
+cd "$HOME"/Documentos/Refs-PDF/ || exit
+
+pdf=$(fd | bat | dmenu -i -l 10 -nb "#1e222a" -nf "#abb2bf" -sb "#5c6370" -sf "#abb2bf" -fn "JetBrainsMono Nerd Font:size=10" -p ' Leer 📚:')
+
+if [ "$pdf" ]; then
+
+	zathura "$pdf" &
+
+else
+
+	exit 1
+
+fi

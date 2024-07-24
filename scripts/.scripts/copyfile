@@ -1,0 +1,39 @@
+#!/bin/sh
+
+file=$(gum choose "pdf" "tex" "html" "docx" "md")
+
+if [ "$file" = "pdf" ]; then
+  _pdf=$(gum input --placeholder "Nombre del pdf")
+  _choosepdf=$(ls ~/*/*$_pdf*.pdf ~/*/*/*$_pdf*.pdf ~/*/*/*/*$_pdf*.pdf ~/*/*/*/*/*$_pdf*.pdf)
+  copypdf=$(gum choose $_choosepdf)
+  cp $copypdf .
+fi
+
+if [ "$file" = "tex" ]; then
+  tex=$(ls ~/*/*.tex ~/*/*/*.tex ~/*/*/*/*.tex ~/*/*/*/*/*.tex)
+  copytex=$(gum choose $tex)
+  cp $copytex .
+fi
+
+if [ "$file" = "html" ]; then
+  html=$(ls ~/*/*.html ~/*/*/*.html ~/*/*/*/*.html ~/*/*/*/*/*.html)
+  copyhtml=$(gum choose $html)
+  cp $copyhtml .
+fi
+
+if [ "$file" = "docx" ]; then
+  docx=$(ls ~/*/*.docx ~/*/*/*.docx ~/*/*/*/*.docx ~/*/*/*/*/*.docx)
+  copydocx=$(gum choose $docx)
+  cp $copydocx .
+fi
+
+if [ "$file" = "md" ]; then
+  _md=$(gum input --placeholder "Nombre del md")
+  _mark=$(ls ~/*/*$_md*.md ~/*/*/*$_md*.md ~/*/*/*/*$_md*.md ~/*/*/*/*/*$_md*.md ~/*/*/*/*/*/*$_md*.md ~/*/*/*/*/*/*/*$_md*.md)
+  copymark=$(gum choose $_mark)
+  cp $copymark .
+fi
+
+gum spin -s jump --title "Copiando..." -- sleep 3
+
+gum style --foreground 12 --border-foreground 57 --border double --align center --width 50 --margin "1 2" --padding "2 4"	'Listo! Copia hecha.'

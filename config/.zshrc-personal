@@ -1,0 +1,57 @@
+#  █████╗ ██╗     ██╗ █████╗ ███████╗    ███████╗███████╗██╗  ██╗
+# ██╔══██╗██║     ██║██╔══██╗██╔════╝    ╚══███╔╝██╔════╝██║  ██║
+# ███████║██║     ██║███████║███████╗      ███╔╝ ███████╗███████║
+# ██╔══██║██║     ██║██╔══██║╚════██║     ███╔╝  ╚════██║██╔══██║
+# ██║  ██║███████╗██║██║  ██║███████║    ███████╗███████║██║  ██║
+# ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝    ╚══════╝╚══════╝╚═╝  ╚═╝
+
+alias cat='bat -pp'
+alias man='batman'
+alias sk='sk --reverse'
+alias ver='wezterm imgcat'
+alias sudo='doas'
+alias cmx='chmod +x'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -vI'
+alias mkdir='mkdir -pv'
+alias gitui='gitui -t mocha.ron'
+alias nnn='nnn -e'
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+alias clock='tty-clock -sct -C 4'
+alias grep='grep --color=auto'
+alias mirror="sudo reflector -c us -c mx -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias sxiv='nsxiv -b'
+alias nsxiv='nsxiv -b'
+alias update='sudo pacman -Syyu'
+alias updatefonts='sudo fc-cache -fv'
+alias yt='yt-dlp --embed-metadata -i'
+alias yta='yt -x -f bestaudio/best'
+alias ytsubs='ytfzf -c S -t -T swayimg-hyprland --preview-side=right --sort'
+alias wget="wget -c"
+alias wshowkeys="wshowkeys -a bottom -F 'SF Pro 20' -t 1000 -s '#73e155' -f  '#ecd29c' -l 60"
+
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   tar xf $1    ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}

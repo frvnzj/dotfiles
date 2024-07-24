@@ -1,0 +1,10 @@
+#!/bin/dash
+
+EWW=$(which eww)
+
+if [ ! "$(pidof eww)" ]; then
+        ${EWW} daemon
+        sleep 1
+fi
+
+${EWW} open-many bindkeys hyprland archlx --toggle
