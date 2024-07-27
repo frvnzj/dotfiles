@@ -1,11 +1,12 @@
 /*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun,run,filebrowser";
-    show-icons:                 false;
-    display-drun:               "drun";
-    display-run:                "run";
-    display-filebrowser:        "files";
-    display-window:             "windows";
+    show-icons:               true;
+    icon-them:                "Papirus-Dark";
+    display-drun:             "drun";
+    display-run:              "run";
+    display-filebrowser:      "files";
+    display-window:           "windows";
 	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
 	window-format:              "{w} · {c} · {t}";
 }
