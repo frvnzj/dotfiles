@@ -1,20 +1,17 @@
-#!/bin/dash
-
-# export BEMENU_OPTS='-i -l 10 -H 24 --fb "#1e1e2e" --ff "#94e2d5" --nb "#1e1e2e" --nf "#f5e0dc" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#cba6f7" --hf "#89b4fa" --nf "#f5e0dc" --af "#f5e0dc" --ab "#1e1e2e" --fn "SF Pro 10"'
+#!/bin/sh
 
 cd "$HOME"/Documentos/Refs-PDF/ || exit
 
-# pdf=$(fd | bemenu -p ' Leer 📚:')
-# pdf=$(fd | fuzzel -i -d -p 'Leer 📚:  ')
-pdf=$(fd | rofi -dmenu -replace -config ~/.config/rofi/config-waypdfmenu.rasi -i -p 'Leer 📚')
-# pdf=$(fd | wofi -i -d -b -W 60% -H 50% -p 'Leer 📚:  ')
+pdfs=$(fd -e pdf | sed 's/$/\\0icon\\x1fdocument-viewer/')
+selectpdf=$(printf "$pdfs" | fuzzel -i --dmenu --line-height=24px -p 'Leer > ' --anchor=right -w 32 -l 28 -P 10 -B 0 -r 0 --font="SF Pro:size=10")
+# selectpdf=$(printf "$pdfs"  | rofi -dmenu -replace -config ~/.config/rofi/config-waypdfmenu.rasi -i -p 'Leer 📚')
 
-if [ "$pdf" ]; then
+if [ "$selectpdf" ]; then
 
-  zathura "$pdf"
+	zathura "$selectpdf"
 
 else
-  
-  exit 1
+
+	exit 1
 
 fi

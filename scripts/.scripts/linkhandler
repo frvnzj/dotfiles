@@ -6,7 +6,7 @@
 # if a music file or pdf, it will download,
 # otherwise it opens link in browser.
 
-navweb=$(printf "🦊 firefox\n🐺 librewolf" | rofi -dmenu -replace -config ~/.config/rofi/config-browser.rasi -p "Abrir en 🌐" | awk '{print $2}')
+navweb=$(echo -en "firefox\0icon\x1ffirefox\nlibrewolf\0icon\x1flibrewolf" | fuzzel --dmenu -p "Navegador > " -l 2 -w 10 -P 10)
 
 if [ -z "$1" ]; then
   url="$(wl-paste -n)"
