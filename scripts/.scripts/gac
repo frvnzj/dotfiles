@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#    _______ __  ___       __    __             
+#   / ____(_) /_/   | ____/ /___/ /  ____  _____
+#  / / __/ / __/ /| |/ __  / __  /  / __ \/ ___/
+# / /_/ / / /_/ ___ / /_/ / /_/ /  / /_/ / /    
+# \____/_/\__/_/  |_\__,_/\__,_/   \____/_/     
+#    _______ __  ____            __                
+#   / ____(_) /_/ __ \___  _____/ /_____  ________ 
+#  / / __/ / __/ /_/ / _ \/ ___/ __/ __ \/ ___/ _ \
+# / /_/ / / /_/ _, _/  __(__  ) /_/ /_/ / /  /  __/
+# \____/_/\__/_/ |_|\___/____/\__/\____/_/   \___/ 
+
+# Script para facilitar la organización de los commits.
+# Dependencias: git, gum y ~/.scripts/cmt
+
+ADD="Añadir"
+RESET="Restaurar"
+
+ACTION=$(gum choose "$ADD" "$RESET")
+
+if [ "$ACTION" == "$ADD" ]; then
+	git status --short | cut -c 4- | gum choose --no-limit | xargs git add && cmt
+else
+	git status --short | cut -c 4- | gum choose --no-limit | xargs git restore
+fi

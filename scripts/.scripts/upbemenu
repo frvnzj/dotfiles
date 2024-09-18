@@ -1,0 +1,55 @@
+#!/bin/sh
+
+export BEMENU_OPTS='-i -H 24 --fb "#1e1e2e" --ff "#94e2d5" --nb "#1e1e2e" --nf "#f5e0dc" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#cba6f7" --hf "#89b4fa" --nf "#f5e0dc" --af "#f5e0dc" --ab "#1e1e2e" --fn "SF Pro 10" -p "0x0"'
+
+upmenu() {
+        options="Subir un archivo\nSubidas recientes\nCancelar"
+        selected=$(echo -e $options | bemenu -l 3 )
+		if [[ "$selected" == "Subir un archivo" ]]; then
+		
+		target="$1"
+		[ -z "$target" ] && target="$(realpath .)"
+
+ls() {
+        echo ..
+        command ls -ALNpX1 --group-directories-first "$target"
+}
+
+		while :; do
+		        sel="$(ls | bemenu -l 25)" || exit
+		        if [ "$(echo "$sel")" = "/" ]; then
+		                newt="$sel"
+		        else
+		                newt="$(realpath "$target/$sel")"
+		        fi
+		        if [ -e "$newt" ]; then
+		                target="$newt"
+		                if [ ! -d "$target" ]; then
+		                        echo "Locación: $target"
+								command="curl -s -F'file=@$target' https://0x0.st"
+               					echo "Ejecutando: $command"
+
+               					url=$(eval $command)
+              					echo "URL: $url"
+
+              					printf "$url" | wl-copy -n
+             					notify-send "Archivo subido" "URL: $url \nLink copiado al portapapeles" -t 5000 -i "$HOME/.scripts/clipicon.png"
+
+               					entry="$(date '+%d-%m-%y-%H:%M:%S')    $url    $(echo $target | awk -F'/' '{print $(NF)}')"
+             					echo $entry >> $HOME/.0x0_list
+             					echo "Subido"; break
+		                fi
+		        fi
+		done
+		elif [[ "$selected" == "Subidas recientes" ]]; then
+                    var=$(tac ~/.0x0_list | bemenu -l 10)
+                    filename=$(echo $var | awk '{print $3}')
+                    url=$(echo $var | awk '{print $2}')
+                    printf "$url" | wl-copy -n
+                    notify-send "$filename" "URL: $url \nLink copiado al portapapeles" -t 5000 -i "$HOME/.scripts/clipicon.png"
+		elif [[ "$selected" == "Cancelar" ]]; then
+					return
+				fi
+}
+
+upmenu

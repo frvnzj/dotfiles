@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Este script despliega un menú con todos los comandos matemáticos de LaTeX.
+# Al seleccionarlo lo escribe automáticamente en la ventana activa.
+# wtype funciona en Wayland. En xorg se aconseja usar xdotool type
+
+export BEMENU_OPTS='-i -l 20 -H 20 --fb "#1e1e2e" --ff "#94e2d5" --nb "#1e1e2e" --nf "#f5e0dc" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#cba6f7" --hf "#89b4fa" --nf "#f5e0dc" --af "#f5e0dc" --ab "#1e1e2e" --fn "NewComputerModernMath 10"'
+
+# bat ./latex.txt | bemenu -p " MathTypstIcon 📋:" | awk '{print $1}' | wl-copy -n
+# notify-send "MathTypstIcon en clipboard 📎"
+
+mathIcon=$(bat ~/.scripts/latex.txt | bemenu -p " MathTypstIcon 📋:" | awk '{print $1}')
+
+wtype "$mathIcon"

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+searchvoice="$(fd . ~/Videos/hXc | cat | sk -f "$(voiceai-english.sh)" | head -n 1)"
+
+mpv "$searchvoice"

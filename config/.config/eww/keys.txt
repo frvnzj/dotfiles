@@ -1,0 +1,39 @@
+SUPER + Return = WezTerm (Terminal)|SUPER + 1 = Workspace 1|SUPERCONTROL + left = Workspace anterior
+SUPERSHIFT + Return = Kitty (Terminal)|SUPER + 2 = Workspace 2|SUPERCONTROL + right = Workspace siguiente
+SUPERSHIFT + W = Firefox|SUPER + 3 = Workspace 3
+|SUPER + 4 = Workspace 4|SUPERCONTROL + up = Enfocar monitor izquierdo
+SUPER + M = Calendario/Agenda|SUPER + 5 = Workspace 5|SUPERCONTROL + down = Enfocar monitor derecho
+SUPER + X = Menú de apagado|SUPER + 6 = Workspace 6
+SUPER + D = Rofi (Menú de programas)|SUPER + 7 = Workspace 7|XF86WebCam = Visualizar cámara
+SUPER + N = YouTube (Sin Navegador)|SUPER + 8 = Workspace 8|XF86AudioMute = Mutear
+SUPERALT + l = Menú de contraseñas|SUPER + 9 = Workspace 9|XF86AudioMicMute = Encender/Apagar micrófono
+SUPERSHIFT + E = Menú de emojis|SUPER + 0 = Workspace 10|XF86AudioRaiseVolume = Subir volumen
+||XF86AudioLowerVolume = Bajar volumen
+SUPER + C = Cerrar ventana|SUPERSHIFT + 1 = Mover ventana a Workspace 1
+SUPERSHIFT + Q = Salir de Hyprland|SUPERSHIFT + 2 = Mover ventana a Workspace 2|XF86MonBrightnessUp = Subir brillo
+SUPERSHIFT + R = Recargar Hyprland|SUPERSHIFT + 3 = Moverventana a Workspace 3|XF86MonBrightnessDown = Bajar brillo
+SUPERCONTROL + Q = Forzar cierre de ventana|SUPERSHIFT + 4 = Mover ventana a Workspace 4
+|SUPERSHIFT + 5 = Mover ventana a Workspace 5|Print = Captura de pantalla
+SUPER + Q = Ocultar Waybar|SUPERSHIFT + 6 = Mover ventana a Workspace 6|SUPER + Print = Captura de ventana o area
+SUPER + B = Recargar Waybar|SUPERSHIFT + 7 = Mover ventana a Workspace 7
+|SUPERSHIFT + 8 = Mover ventana a Workspace 8
+SUPER + Y = Añadir link copiado a Bookmarks|SUPERSHIFT + 9 = Mover ventana a Workspace 9
+SUPER + V = Manual de comandos|SUPERSHIFT + 0 = Mover ventana a Workspace 10
+SUPER + W = Menú manejo de links|
+SUPER + R = Grabar pantallas|SUPERCONTROL + s = Mover ventana a Workspacesilent
+SUPER + L = Libros|SUPER + t = Mostrar ventanaen Workspacesilent
+SUPER + K = Editar configuraciones|
+SUPER + J = Compartir archivos|SUPER + clickderecho = Mover ventana
+SUPER + H = Menú de atajos de teclado|SUPER + clickizquierdo= Cambiar tamaño de ventana
+SUPERALT + V = Historial del cipboard|
+SUPERSHIFT + Y = Añadir subscripción YouTube|SUPERALT + left = Ajustar tamaño de ventana
+SUPERSHIFT + F = Menú imágenes|SUPERALT + right = Ajustar tamaño de ventana
+SUPERSHIFT + B = Buscar una palabra en la RAE|SUPER + left = Enfocar ventana izquierda
+SUPERSHIFT + P = Seleccionador de color|SUPER + right = Enfocar ventana derecha
+SUPERSHIFT + N = Bookmarks|SUPER + up = Enfocar ventana arriba
+|SUPER + down = Enfocar ventana abajo
+SUPER + P = Ventana cuadrada|SUPERSHIFT + left = Intercambiar posición ventana izquierda
+SUPER + F = Ventana fullscreen|SUPERSHIFT + right = Intercambiar posición ventana derecha
+SUPER + G = Ventana espacio completo|SUPERSHIFT + up = Intercambiar posición ventana arriba
+SUPERALT + H = Girar ventanas|SUPERSHIFT + down = Intercambiar posición ventana abajo
+SUPERSHIFT + T = Ventana flotante|

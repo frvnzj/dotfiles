@@ -1,0 +1,6 @@
+#!/bin/bash
+
+file=$(fd -tf | dmenu -x 9 -y 10 -z 1350 -i -l 10 -nb "#1e222a" -nf "#abb2bf" -sb "#5c6370" -sf "#abb2bf" -fn "JetBrainsMono Nerd Font:size=10" -p 'Enviar:')
+curl -F "file=@$file" 0x0.st | xclip -selection c
+
+notify-send "Link del archivo en el clipboard"

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+PLANTILLA=$(ls ~/Plantillas/ | gum choose)
+NOMBRE=$(gum input --placeholder " ¿Cómo se llamará tu archivo?")
+TIPO=$(gum choose ".tex" ".html" ".docx" ".md")
+
+cp ~/Plantillas/$PLANTILLA $NOMBRE$TIPO | gum spin -s jump --title "Copiando..." -- sleep 2
+
+gum style --foreground 12 --border-foreground 57 --border double --align center --width 50 --margin "1 2" --padding "2 4"	'Listo! Copia hecha.'

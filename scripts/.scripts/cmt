@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#    _______ __  ______                          _ __ 
+#   / ____(_) /_/ ____/___  ____ ___  ____ ___  (_) /_
+#  / / __/ / __/ /   / __ \/ __ `__ \/ __ `__ \/ / __/
+# / /_/ / / /_/ /___/ /_/ / / / / / / / / / / / / /_  
+# \____/_/\__/\____/\____/_/ /_/ /_/_/ /_/ /_/_/\__/  
+
+# Script para los commits de git.
+# Dependencias: git y gum.
+
+TYPE=$(gum choose "fix" "feat" "docs" "style" "refactor" "test" "chore" "revert")
+SCOPE=$(gum input --placeholder "scope")
+
+test -n "$SCOPE" && SCOPE="($SCOPE)"
+
+SUMMARY=$(gum input --value "$TYPE$SCOPE: " --placeholder "Sumario del cambio")
+DESCRIPTION=$(gum write --placeholder "Detalles de los cambios. (CTRL+D para finalizar)")
+
+gum confirm "¿Commit cambios?" && git commit -m "$SUMMARY" -m "$DESCRIPTION"

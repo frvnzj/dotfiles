@@ -1,0 +1,20 @@
+#!/bin/env bash
+
+declare -A options=(
+["Edit"]="$HOME/.local/bin/editfile"
+["StartPage"]="$HOME/sp/index.html"
+["Nvim"]="$HOME/.config/lvim/config.lua"
+["Vieb"]="$HOME/.config/Vieb/viebrc"
+["ZSH"]="$HOME/.zshrc"
+["ZSH-alias"]="$HOME/.zshrc-personal"
+)
+
+choice=$(printf '%s\n' "${!options[@]}" | sort -u | dmenu -x 9 -y 10 -z 1350 -i -l 10 -nb "#1e222a" -nf "#abb2bf" -sb "#5c6370" -sf "#abb2bf" -fn "JetBrainsMono Nerd Font:size=11" -p 'Editar:')
+
+if [ "$choice" ]; then
+
+  kitty lvim "${options[$choice]}"
+
+else
+  echo "Saliendo..."; exit 1
+fi

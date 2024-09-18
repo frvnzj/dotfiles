@@ -1,0 +1,35 @@
+;; Keybinds var
+(defpoll KEYS :interval "5m" `column -t -s "|" keys.txt`)
+(defvar IMAGE "hyprland.png")
+(defvar IMAGEARCH "archlinux-logo.png")
+
+;; Keybinds
+(defwidget keybinds []
+  (box :class "genwin" :orientation "v" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+    (label :class "keys" :halign "center" :wrap "false" :limith-width 600 :text KEYS)))
+
+;; Hypr
+(defwidget hyprlogo []
+  (box :class "genwin" :orientation "v" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+		(box :style "background-image: url('${IMAGE}');" :class "logohypr" :halign "center")))
+
+;; Arch
+(defwidget archlogo []
+  (box :class "genwin" :orientation "v" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+		(box :style "background-image: url('${IMAGEARCH}');" :class "logoarch" :halign "center")))
+
+
+;; keyswin
+(defwindow bindkeys :stacking "fg" :focusable "false" :monitor 0
+  :geometry (geometry :x 60 :y 30 :width 1250 :height 500)
+    (keybinds))
+
+;; Hypr
+(defwindow hyprland :stacking "fg" :focusable "false" :monitor 0 
+	    :geometry (geometry :x 960 :y 520 :width 250 :height 100)
+					(hyprlogo))
+
+;; Arch
+(defwindow archlx :stacking "fg" :focusable "false" :monitor 0 
+	    :geometry (geometry :x 945 :y 380 :width 250 :height 100)
+					(archlogo))

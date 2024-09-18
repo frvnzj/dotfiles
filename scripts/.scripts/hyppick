@@ -1,0 +1,5 @@
+#!/bin/sh
+
+hyprpicker -a -n
+magick -size 100x100 xc:$(wl-paste) /tmp/color.png
+dunstify --icon=/tmp/color.png "$(wl-paste)"  "Color HEX en clipboard!"

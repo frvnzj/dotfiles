@@ -1,0 +1,26 @@
+#!/bin/sh
+
+export BEMENU_OPTS='-i -l 10 -H 24 --fb "#1e1e2e" --ff "#94e2d5" --nb "#1e1e2e" --nf "#f5e0dc" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#cba6f7" --hf "#89b4fa" --nf "#f5e0dc" --af "#f5e0dc" --ab "#1e1e2e" --fn "SF Pro 10"'
+
+menu() {
+  printf "🦊 Firefox\n"
+  printf "🐺 Librewolf\n"
+  printf "🦖 Type\n"
+}
+
+bms="$HOME/.scripts/bookms/bookmarks.txt"
+bookmark=$(bat $bms | bemenu -p "🌐 Abrir bookmark")
+navegador=$(menu | bemenu -p " Navegador 🌐" | awk '{print $2}')
+
+if [ -n "$navegador" ]; then
+  case $navegador in
+    Firefox)
+      firefox $bookmark ;;
+    Librewolf)
+      librewolf $bookmark ;;
+    Type)
+      wtype $bookmark ;;
+  esac
+else
+  return
+fi

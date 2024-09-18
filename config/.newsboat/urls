@@ -1,0 +1,27 @@
+"---Diánoia---"
+https://dianoia.filosoficas.unam.mx/index.php/dianoia/gateway/plugin/WebFeedGatewayPlugin/rss2
+
+"---AristeguiNoticias---"
+https://editorial.aristeguinoticias.com/feed/
+
+"---La Jornada---"
+https://jornada.com.mx/rss/edicion.xml?v=1
+
+"---La Razón---"
+https://www.razon.com.mx/rss/feed.xml
+
+"---Reforma---"
+https://www.reforma.com/rss/portada.xml
+https://www.reforma.com/rss/nacional.xml
+https://www.reforma.com/rss/internacional.xml
+
+"---El País - Periódico español---"
+https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/america/portada
+https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/internacional/portada
+https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/ciencia/portada
+
+"---Sputnik - Periódico ruso---"
+https://sputniknews.lat/export/rss2/archive/index.xml
+
+"---The Hacker News---"
+https://feeds.feedburner.com/TheHackersNews

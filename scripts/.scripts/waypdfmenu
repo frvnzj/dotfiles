@@ -1,0 +1,17 @@
+#!/bin/sh
+
+cd "$HOME"/Documentos/Refs-PDF/ || exit
+
+pdfs=$(fd -e pdf | sed 's/$/\\0icon\\x1fdocument-viewer/')
+selectpdf=$(printf "$pdfs" | fuzzel -i --dmenu --line-height=24px -p 'Leer > ' --anchor=right -w 32 -l 28 -P 10 -B 0 -r 0 --font="SF Pro:size=10")
+# selectpdf=$(printf "$pdfs"  | rofi -dmenu -replace -config ~/.config/rofi/config-waypdfmenu.rasi -i -p 'Leer 📚')
+
+if [ "$selectpdf" ]; then
+
+	zathura "$selectpdf"
+
+else
+
+	exit 1
+
+fi

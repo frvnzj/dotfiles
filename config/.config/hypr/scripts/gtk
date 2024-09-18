@@ -1,0 +1,21 @@
+#!/bin/bash
+
+## Set GTK Themes, Icons, Cursor and Fonts
+
+THEME='catppuccin-mocha-sapphire-standard+default'
+ICONS='Papirus-Dark'
+CURSOR='BreezeX-RosePine-Linux'
+FONT='Figtree 10'
+SCHEME='prefer-dark'
+
+SCHEMA='gsettings set org.gnome.desktop.interface'
+
+apply_themes() {
+	${SCHEMA} gtk-theme "$THEME"
+	${SCHEMA} icon-theme "$ICONS"
+	${SCHEMA} cursor-theme "$CURSOR"
+	${SCHEMA} font-name "$FONT"
+	${SCHEMA} color-scheme "$SCHEME"
+}
+
+apply_themes
